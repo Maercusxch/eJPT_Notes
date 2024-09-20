@@ -7,7 +7,7 @@ It involves scanning open ports, mapping network topologies, and collecting info
 
 ### Packets
 
-The primary goal of networking is the exchange information between networked computers; this information is transferred by packets. Packets are nothing but streams of bits running as electric signals on physical media used for data transmission(Ethernet, Wi-Fi etc). These electrical signals are then interpreted as bits (zeros and ones) that make up the information.
+The primary goal of networking is the exchange of information between networking computers; this information is transferred by packets. Packets are more nothing but streams of bits running as electric signals on physical media used for data transmission(Ethernet, Wi-Fi etc). These electrical signals are then interpreted as bits (zeros and ones) that make up the information.
 ![Packets](https://github.com/user-attachments/assets/c6040f83-2172-434a-ac42-d3d1515fb712)
 
 - **Header:** The header contains information about the packet, such as its origin and destination IP addresses
@@ -68,9 +68,9 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 **Most Important ones to know:**
 - IP source address - Packet Source
 - IP Destination Address - Packet Destination
-- Time-to-Live (TTL) - An 8-bit value that indicates the remaining life of the packet.
+- Time-to-Live (TTL) - An 8-bit value that indicates the remaining lifespan of the packet.
 - Type-of-Service (ToS) - The Type-of-Service field contains an 8-bit binary value that is used to determine the priority of each packet.
-- Protocol - This 8-bit value indicated the data payload type that the packet is carrying.
+- Protocol - This 8-bit value indicates the data payload type that the packet is carrying.
 
 
 ### IPv4 Header Fields
@@ -78,9 +78,9 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 
 | Field         | Purpose       |
 | ------------- | ------------- |
-| Version (4 bits)|Indicates the verion of the IP protocol being used. For IPv4, the value is 4.|
-| Header Length (4 bits) | Specifies the lenght of the IPv4 in 32-bit words. The minimum value is 5, indication a 60-byte header.  |
-| Type of Service (8 bits) | Originally designed for specifiying the quality of service, it includes fields such as Differentiated Services Code Point (DSCP) and Explicit Congestion Notification (ECN) to manage packet priority and congestion control.|
+| Version (4 bits)|Indicates the version of the IP protocol being used. For IPv4, the value is 4.|
+| Header Length (4 bits) | Specifies the lenght of the IPv4 in 32-bit words. The minimum value is 5, indicating a 60-byte header.  |
+| Type of Service (8 bits) | Originally designed for specifying the quality of service, it includes fields such as Differentiated Services Code Point (DSCP) and Explicit Congestion Notification (ECN) to manage packet priority and congestion control.|
 | Total Lenght (16 bits) | Represents the total size of the IP packet, including both the header and the payload. The maximum size is 65.535 bytes |
 |Identification (16 bits) | Is used for reassembling fragmented packets. Each Fragment of a packet is assigned the same identification value. |
 | Flags (3 bits) | Includes three flags related to packet fragmentation, when beeing performed: 1): Reserved (bit 0): Always set to 0.  2): Don't Fragment (DF, bit 1): if set to 1, indicates that the packet should not be fragmented.  3): More Fragments (MF, bit 2): If set to 1, indicates that more fragments follow in a fragmented packet.|
