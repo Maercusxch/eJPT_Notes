@@ -81,3 +81,9 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 | Version (4 bits)|Indicates the verion of the IP protocol being used. For IPv4, the value is 4.|
 | Header Length (4 bits) | Specifies the lenght of the IPv4 in 32-bit words. The minimum value is 5, indication a 60-byte header.  |
 | Type of Service (8 bits) | Originally designed for specifiying the quality of service, it includes fields such as Differentiated Services Code Point (DSCP) and Explicit Congestion Notification (ECN) to manage packet priority and congestion control.|
+| Total Lenght (16 bits) | Represents the total size of the IP packet, including both the header and the payload. The maximum size is 65.535 bytes |
+|Identification (16 bits) | Is used for reassembling fragmented packets. Each Fragment of a packet is assigned the same identification value. |
+| Flags (3 bits) | Includes three flags related to packet fragmentation, when beeing performed:
+- Reserved (bit 0): Always set to 0.
+- Don't Fragment (DF, bit 1): if set to 1, indicates that the packet should not be fragmented.
+- More Fragments (MF, bit 2): If set to 1, indicates that more fragments follow in a fragmented packet.|
