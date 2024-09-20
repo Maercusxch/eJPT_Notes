@@ -34,6 +34,19 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 - ICMP(Internet Control Message Protocol) Used for error reporting and diagnostics. ICMP messages include ping (echo request and echo reply), traceroute, and various error messages.
 
 
+### IPv4 Addresses
+
+- IPv4 address consists of four bytes, or octets; a byte consists of 8 bits.
+- A dot delimits every octet in the address.
+
+
+### Reserved IPv4 Addresses
+
+0.0.0.0 - 0.255.255.255 representing "this" network.
+127.0.0.0 - 127.255.255.255 representing the local host
+192.168.0.0 - 192.168.255.255 reserved for private networks.
+
+
 ### IP Functionality
 
 **Logial Addressing**
