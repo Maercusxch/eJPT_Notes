@@ -88,3 +88,9 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 | Protocol (8 bits) | Identifies the higher-layer protocol that will receive the packet after IP processing. Common values include 6 for TCP, 17 for UDP and 1 for ICMP. |
 |Source IP Address (32 bits) |Specifies the IPv4 address of the sender (source) of the packet.|
 |Destination IP Address (32 bits) |Specifies the IPv4 address of the intended recipient (destination) of the packet.|
+
+
+### IP Header Format
+
+![image](https://github.com/user-attachments/assets/69484e38-3ce7-4df4-aa62-68a113abae50)
+
