@@ -21,5 +21,5 @@ The header has a protocol-specific structure: this ensures that the receiving ho
 
 | Field         | Purpose       |
 | ------------- | ------------- |
-| Version (4 bits)| Content Cell  |
+| Version (4 bits)|Indicates the verion of the IP protocol being used. For IPv4, the value is 4.|
 | Content Cell  | Content Cell  |
