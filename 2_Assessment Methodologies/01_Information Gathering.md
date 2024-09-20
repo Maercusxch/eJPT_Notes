@@ -25,6 +25,7 @@ Active Information Gathering: Actively engaging with the target system to collec
 - Enumerating information from target systems
 
 
+
 ## Passive Information Gathering
 
 ### Website Recon & Footprinting
@@ -112,6 +113,7 @@ Is used for open source intelligence (OSINT) gathering to help determine a compa
 ### Leaked Password Databases
 
 - Website: Check haveibeenpwned.com for compromised accounts.
+
 
 
 ## Active Information Gathering
