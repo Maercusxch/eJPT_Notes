@@ -17,3 +17,9 @@ The header has a protocol-specific structure: this ensures that the receiving ho
 ### ISO OSI Modell
 
 ![ISO OSI Modell](https://github.com/user-attachments/assets/682c0e1d-835c-4713-acb2-d79aaa6bdef5)
+
+
+| Field         | Purpose       |
+| ------------- | ------------- |
+| Version (4 bits)| Content Cell  |
+| Content Cell  | Content Cell  |
