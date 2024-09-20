@@ -84,6 +84,6 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 | Total Lenght (16 bits) | Represents the total size of the IP packet, including both the header and the payload. The maximum size is 65.535 bytes |
 |Identification (16 bits) | Is used for reassembling fragmented packets. Each Fragment of a packet is assigned the same identification value. |
 | Flags (3 bits) | Includes three flags related to packet fragmentation, when beeing performed:
-- Reserved (bit 0): Always set to 0.
-- Don't Fragment (DF, bit 1): if set to 1, indicates that the packet should not be fragmented.
-- More Fragments (MF, bit 2): If set to 1, indicates that more fragments follow in a fragmented packet.|
+Reserved (bit 0): Always set to 0.
+Don't Fragment (DF, bit 1): if set to 1, indicates that the packet should not be fragmented.
+More Fragments (MF, bit 2): If set to 1, indicates that more fragments follow in a fragmented packet.|
