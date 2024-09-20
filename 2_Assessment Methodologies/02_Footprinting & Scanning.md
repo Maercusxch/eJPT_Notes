@@ -84,3 +84,7 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 | Total Lenght (16 bits) | Represents the total size of the IP packet, including both the header and the payload. The maximum size is 65.535 bytes |
 |Identification (16 bits) | Is used for reassembling fragmented packets. Each Fragment of a packet is assigned the same identification value. |
 | Flags (3 bits) | Includes three flags related to packet fragmentation, when beeing performed: 1): Reserved (bit 0): Always set to 0.  2): Don't Fragment (DF, bit 1): if set to 1, indicates that the packet should not be fragmented.  3): More Fragments (MF, bit 2): If set to 1, indicates that more fragments follow in a fragmented packet.|
+| Time to Live (TTL,8 bits) |  Represents the maximum number of hops a packet can traverse befor being discarded. It is decremented by one at each hop. |
+| Protocol (8 bits) | Identifies the higher-layer protocol that will receive the packet after IP processing. Common values include 6 for TCP, 17 for UDP and 1 for ICMP. |
+|Source IP Address (32 bits) |Specifies the IPv4 address of the sender (source) of the packet.|
+|Destination IP Address (32 bits) |Specifies the IPv4 address of the intended recipient (destination) of the packet.|
