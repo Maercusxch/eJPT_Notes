@@ -1,21 +1,26 @@
-### 01_Information Gathering
-## 01_Information Gathering
 # 01_Information Gathering
 
 We need to identify vulnerabilities and web technologies. The more you know about your target, the more successful you will be.
 
-Types of Information Gathering
+
+## Types of Information Gathering
+
 Passive Information Gathering: Collecting information without actively engaging with the target.
 Active Information Gathering: Actively engaging with the target system to collect as much information as possible (requires authorization).
-Information We Are Looking For
-Passive Information Gathering
-Identifying IP addresses & DNS information
+
+
+## Information We Are Looking For
+
+### Passive Information Gathering
+
+- Identifying IP addresses & DNS information
 Identifying domain names and domain ownership information
 Identifying email addresses and social media profiles
 Identifying web technologies used on target sites
 Identifying subdomains
-Active Information Gathering
-Discovering open ports on target systems
+
+### Active Information Gathering
+- Discovering open ports on target systems
 Learning about the internal infrastructure of a target network/organization
 Enumerating information from target systems
 Passive Information Gathering
