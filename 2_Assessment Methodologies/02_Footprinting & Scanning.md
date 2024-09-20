@@ -1,5 +1,11 @@
 # Footprinting & Scanning
 
+
+Hallo Schaatz 
+
+<3
+
+
 It involves scanning open ports, mapping network topologies, and collecting information about hosts, their operating systems, IP addresses, and user accounts. This gathered data helps to generate a comprehensive technical blueprint of the target organization.
 
 ## Networking Fundamentals
