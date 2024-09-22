@@ -107,3 +107,17 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 
 ![image](https://github.com/user-attachments/assets/69484e38-3ce7-4df4-aa62-68a113abae50)
 
+
+
+## Transport Layer
+
+The Transport layer fourth layer of the OSI model, plays a crucial role in faciliating communication between two devices across a network. This layer enrsures end-to-end communication, handling tasks such as error detection, flow control, segmentation of data into smaller units.
+Is responsible for providing end-to-end communication and ensuring the reliable and ordered delivery of data between two devices on a network.
+
+
+Transpost Layer Protocols
+
+- TCP (Transmission Control Protocol): Connection-oriented protocol providing reliable and ordered delivery of data.
+- UDP (User Datagram Protocol): Connectionless protocol that is faster but provides no guarantees regarding the order or reliability of data delivery.
+
+
