@@ -257,7 +257,7 @@ To enumerate the best host discovery technique for your needs, there are some co
 **ICMP Ping:**
 - Pros: ICMP ping is a widely supported and quick method for identifying live hosts.
 - Cons: Some hosts or firewally may be configured to block ICMP traffic, limiting its effectiveness. ICMP ping can also be easily detected.
-- 
+
 **TCP SYN Ping:**
 - Pros: TCP SYN ping is stealthier than ICMP and may bypass firewalls that allow outbond connections.
 - Cons: Some hosts may not respond to TCP SYN requests, and the results can be affected by firewalls and security devices.
