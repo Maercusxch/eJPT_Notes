@@ -252,3 +252,11 @@ In pentesting, host discovery is a crucial phase to identify live hosts on a net
 - **TCP Ack Ping:** Sending TCP Ack packets to a specific port to check if a host is alive. This technique expects no response, but if a TCP RST (reset) is recieved, it indicates that the host is alive.
 - **SYN-ACK Ping (Sends SYN-ACK packets):** Sending TCP SYN-ACK packets to a specific port to check if a host is alive. If a TCP RST is recieved, it indicates that the host is alive
 
+To enumerate the best host discovery technique for your needs, there are some considerations you need to keep in mind:
+
+- **ICMP Ping:**
+Pros: ICMP ping is a widely supported and quick method for identifying live hosts.
+Cons: Some hosts or firewally may be configured to block ICMP traffic, limiting its effectiveness. ICMP ping can also be easily detected.
+- **TCP SYN Ping:**
+Pros: TCP SYN ping is stealthier than ICMP and may bypass firewalls that allow outbond connections.
+Cons: Some hosts may not respond to TCP SYN requests, and the results can be affected by firewalls and security devices.
