@@ -230,3 +230,12 @@ A company asks for you/your company to perform a pentest, and the following addr
 - **Operating System Fingerprining:** Determining the operating systems running on discovered hosts. Knowing the operating system helps pentesters tailor their attack strategies to target vulnerabilities specific to that OS. example: If you perform a blackbox pentest and you discover that the target network is a windows environment or AD domain, you can focus your attention on Windows/AD specific attacks.
 - **Serice Version Detection:** Identifying specific versions of services running on open ports. This informtion is crucial for pinpointing vulnerabilities associated with particular service versions.
 - **Identifying Filtering and Security Measures:** Discovering firewalls, intrusion prevention systems, and other security measures in place. This helps pentesters understand the network's defenses and plan their approach accordingly.
+
+
+### Nmap (Network Mapper) & Nmap Functionality
+
+- **Usage:** Used for discovering hosts and services on a computer network, finding open ports, and identifying potential vulnerabilites.
+- **Host Discovery:** Nmap can identify live hosts on a network using techniques such as ICMP echo requests, ARP requests, or TCP/UDP probes.
+- **Port Scanning:** It can perform various types of port scans to discover open ports on target hosts.
+- **Service Version Detection:** Nmap can determine the versions of services running on open ports. This info helps in understanding the software stack and potential vulnerabilites associated with specific versions.
+- ***Operating System Fingerprinting:** Nmap can attempt to identify the operating system od target hosts based on characteristics observed during the scanning process.
