@@ -1,4 +1,4 @@
-# Footprinting & Scanning
+# Networking Primer
 
 
 It involves scanning open ports, mapping network topologies, and collecting information about hosts, their operating systems, IP addresses, and user accounts. This gathered data helps to generate a comprehensive technical blueprint of the target organization.
@@ -206,4 +206,17 @@ UDP is a connectionless and lightweight transport layer protocol that provides a
 - **Used for Real-Time Applications:** UDP is commonly used in real-time applications where low latency is crucial, such as audio and video streaming, online gaming, and voice-over-IP (VoIP) communication.
 - **Simple and Stateless:** UDP is a stateless protocol meaining that it does not maintain any state informaion about the communication.
 - **Independence:** Each UDP packet is independent of previous or future packets.
+
+
+ 
+# Host Discovery
+
+## Network Mapping
+
+After collecting information about a target organization during the passive information gathering sage, a penetration tester typically moves n to active information gathering phase which involves discovering hosts on a network, perfoming port scanning and enumeration. Every host connected to the Internet or a private network must have a unique IP address that uniquely identifies it on a said network. How can a pentester determine what hosts, within an in-scope network are online? what ports are oopen on the active hosts? and what operating sytems are running on the active hosts? Answer - Network Mapping. Network mapping in the context of pentesting refers to the process of discovering and identifying devices, hosts, and network infrastructure elements within a target network. Pentesters use network mapping as a crucial initial step to gather information about the network's layout, understand its architecture, and identify potential entry points for further exploitation.
+
+**Example:**
+A company asks for you/your company to perform a pentest, and the following address block is considered in scope: 200.200.0.0/16. A sixteen-bit long netmask means the could contain up to 216 (65536) hosts with IP addresses in the 200.200.0.0 - 200.200.255.255 range. The first job for the pentester will involve determining which of the 65536 IP addresses are assigned to a host, and which of those hosts are online/active. 
+![image](https://github.com/user-attachments/assets/9529cf96-18c9-4e55-8a7e-19318308b6d2)
+![image](https://github.com/user-attachments/assets/dbd1a4cd-3504-4223-8cb8-b0483d931307)
 
