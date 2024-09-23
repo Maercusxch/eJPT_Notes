@@ -120,7 +120,11 @@ TCP is one of the main protocols operating at the Transport Layer (Layer 4) of t
 - **Ordered Data Transfer:** TCP ensures that data is delivered in the correct order. If segments of data arrive out of order, TCP reorders them before passing them to the higher-layer application.
 
 
+### TCP 3-Way Handshake 
 
+The TCP three-way handshake is a process used to establish a reliable connection between two devices before they begin data transmission. It involves a series of three messages exchanged between the sender (client) and the reciever (server).
+
+![image](https://github.com/user-attachments/assets/1f40e1f2-bb42-40f2-ba96-ffd4d1226923)
 
 
 
