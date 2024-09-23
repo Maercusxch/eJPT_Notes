@@ -13,7 +13,7 @@ Active Information Gathering: Actively engaging with the target system to collec
 
 ### Passive Information Gathering
 
-- Identifying IP addresses & DNS information
+- `Identifying IP addresses & DNS information`
 - Identifying domain names and domain ownership information
 - Identifying email addresses and social media profiles
 - Identifying web technologies used on target sites
