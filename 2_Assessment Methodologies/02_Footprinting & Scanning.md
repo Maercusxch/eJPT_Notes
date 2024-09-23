@@ -128,7 +128,9 @@ TCP is one of the main protocols operating at the Transport Layer (Layer 4) of t
 
 Connection-Oriented:
 -  TCP establishes a connection between the sender and receiver before any data is exchanged. This connection is a virtual circuit that ensures reliable and ordered data transfer.
+-  
 Reliability:
 - TCP guarantees reliable delivery of data. It achieves this through mechanisms such as acknowledgements (ACK) and retransmissions of lost or corrupted packets. If a segment of data is not acknowledged. TCP automatically resends the segment.
+- 
 Ordered Data Transfer:
 - TCP ensures that data is delivered in the correct order. If segments of data arrive out of order, TCP reorders them before passing them to the higher-layer application.
