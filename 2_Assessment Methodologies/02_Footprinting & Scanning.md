@@ -122,9 +122,26 @@ TCP is one of the main protocols operating at the Transport Layer (Layer 4) of t
 
 ### TCP 3-Way Handshake 
 
-The TCP three-way handshake is a process used to establish a reliable connection between two devices before they begin data transmission. It involves a series of three messages exchanged between the sender (client) and the reciever (server).
+The TCP three-way handshake is a process used to establish a reliable connection between two devices before they begin data transmission. It involves a series of three messages exchanged between the sender (client) and the reciever (server). Before a HTTP request can happen, a TCP 3-Way Handshake must happen.
 
 ![image](https://github.com/user-attachments/assets/1f40e1f2-bb42-40f2-ba96-ffd4d1226923)
+
+- **Syn** (Synchronize): process begins with the client sending a TCP segment with the SYN flag set. This initial message indicates the client's intention to establish a connection and includes an initial sequence number (ISN), which is a randomly chosen value.
+- **SYN-ACK** (Synchronize-Acknowledge): Upon recieving the SYN segment, the server responds with a TCP segment that has both the SYN and ACK (Acknowledge) flags set. The acknowledgment (ACK) number is set to one more than the initial sequence number recieved in the client's SYN segment. The server also generates its own initial sequence number.
+- **ACK** (Acknowledge): Finally, the client acknowledges the server's response by sending a TCP segment with the ACK flag set. The acknowledgment number is set to one more than the server's initial sequence number. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
