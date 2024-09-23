@@ -221,3 +221,12 @@ A company asks for you/your company to perform a pentest, and the following addr
 ![image](https://github.com/user-attachments/assets/9529cf96-18c9-4e55-8a7e-19318308b6d2)
 ![image](https://github.com/user-attachments/assets/dbd1a4cd-3504-4223-8cb8-b0483d931307)
 
+
+### Network Mapping Objective
+
+- **Discovery of Live Hosts:** Identifying active devices and hosts on the network. This involves determining which IP addresses are currently in use.
+- **Identification of Open Ports and Services:** Determining which ports are open on the discovered hosts and identifying the services running on those ports. This information helps pentesters understand the attack surface and potential vulnerabilities.
+- **Network Topology Mapping:** Creating a map or diagram of the network topology including routers, switches, firewalls, and ohter network infrastructure elements. Understanding the layout of the network assists in planning further pentesting activites.
+- **Operating System Fingerprining:** Determining the operating systems running on discovered hosts. Knowing the operating system helps pentesters tailor their attack strategies to target vulnerabilities specific to that OS. example: If you perform a blackbox pentest and you discover that the target network is a windows environment or AD domain, you can focus your attention on Windows/AD specific attacks.
+- **Serice Version Detection:** Identifying specific versions of services running on open ports. This informtion is crucial for pinpointing vulnerabilities associated with particular service versions.
+- **Identifying Filtering and Security Measures:** Discovering firewalls, intrusion prevention systems, and other security measures in place. This helps pentesters understand the network's defenses and plan their approach accordingly.
