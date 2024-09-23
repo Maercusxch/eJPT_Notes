@@ -109,6 +109,23 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 
 
 
+## Transport Layer
+
+The Transport layer fourth layer of the OSI model, plays a crucial role in faciliating communication between two devices across a network. This layer enrsures end-to-end communication, handling tasks such as error detection, flow control, segmentation of data into smaller units. Is responsible for providing end-to-end communication and ensuring the reliable and ordered delivery of data between two devices on a network.
+
+
+### Transpost Layer Protocols
+
+- **TCP** (Transmission Control Protocol): Connection-oriented protocol providing reliable and ordered delivery of data.
+- **UDP** (User Datagram Protocol): Connectionless protocol that is faster but provides no guarantees regarding the order or reliability of data delivery.
+
+### TCP vs UDP 
+
+![image](https://github.com/user-attachments/assets/6f788dcf-2a97-4927-a18f-039d778b764b)
+`netstat -antp` to see TCP connections Windows: `netstat -ano` to see TCP connections
+
+
+
 ## TCP(Transmission Control Protocol)
 
 TCP is one of the main protocols operating at the Transport Layer (Layer 4) of the OSI model. TCP is a connection oriented, reliable protocol that provides a dependable and ordered delivery of data between two devices over a network. It ensures, that data sent from one application on a device is recieved accurately and in the correct order by another application on a different device.
@@ -190,20 +207,3 @@ UDP is a connectionless and lightweight transport layer protocol that provides a
 - **Simple and Stateless:** UDP is a stateless protocol meaining that it does not maintain any state informaion about the communication.
 - **Independence:** Each UDP packet is independent of previous or future packets.
 
-
-
-
-## Transport Layer
-
-The Transport layer fourth layer of the OSI model, plays a crucial role in faciliating communication between two devices across a network. This layer enrsures end-to-end communication, handling tasks such as error detection, flow control, segmentation of data into smaller units. Is responsible for providing end-to-end communication and ensuring the reliable and ordered delivery of data between two devices on a network.
-
-
-### Transpost Layer Protocols
-
-- **TCP** (Transmission Control Protocol): Connection-oriented protocol providing reliable and ordered delivery of data.
-- **UDP** (User Datagram Protocol): Connectionless protocol that is faster but provides no guarantees regarding the order or reliability of data delivery.
-
-### TCP vs UDP 
-
-![image](https://github.com/user-attachments/assets/6f788dcf-2a97-4927-a18f-039d778b764b)
-`netstat -antp` to see TCP connections Windows: `netstat -ano` to see TCP connections
