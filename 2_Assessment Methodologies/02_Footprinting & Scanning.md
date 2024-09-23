@@ -111,8 +111,7 @@ The Network Layer is responsible for logical addressing, routing, and forwarding
 
 ## Transport Layer
 
-The Transport layer fourth layer of the OSI model, plays a crucial role in faciliating communication between two devices across a network. This layer enrsures end-to-end communication, handling tasks such as error detection, flow control, segmentation of data into smaller units.
-Is responsible for providing end-to-end communication and ensuring the reliable and ordered delivery of data between two devices on a network.
+The Transport layer fourth layer of the OSI model, plays a crucial role in faciliating communication between two devices across a network. This layer enrsures end-to-end communication, handling tasks such as error detection, flow control, segmentation of data into smaller units. Is responsible for providing end-to-end communication and ensuring the reliable and ordered delivery of data between two devices on a network.
 
 
 Transpost Layer Protocols
@@ -121,7 +120,15 @@ Transpost Layer Protocols
 - **UDP** (User Datagram Protocol): Connectionless protocol that is faster but provides no guarantees regarding the order or reliability of data delivery.
 
 
-#### TCP
 ### TCP
 
 TCP is one of the main protocols operating at the Transport Layer (Layer 4) of the OSI model. TCP is a connection oriented, reliable protocol that provides a dependable and ordered delivery of data between two devices over a network. It ensures, that data sent from one application on a device is recieved accurately and in the correct order by another application on a different device.
+
+#### TCP characteristics
+
+Connection-Oriented:
+-  TCP establishes a connection between the sender and receiver before any data is exchanged. This connection is a virtual circuit that ensures reliable and ordered data transfer.
+Reliability:
+- TCP guarantees reliable delivery of data. It achieves this through mechanisms such as acknowledgements (ACK) and retransmissions of lost or corrupted packets. If a segment of data is not acknowledged. TCP automatically resends the segment.
+Ordered Data Transfer:
+- TCP ensures that data is delivered in the correct order. If segments of data arrive out of order, TCP reorders them before passing them to the higher-layer application.
