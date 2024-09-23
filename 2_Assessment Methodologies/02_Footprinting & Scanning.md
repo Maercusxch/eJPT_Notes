@@ -217,6 +217,7 @@ After collecting information about a target organization during the passive info
 
 **Example:**
 A company asks for you/your company to perform a pentest, and the following address block is considered in scope: 200.200.0.0/16. A sixteen-bit long netmask means the could contain up to 216 (65536) hosts with IP addresses in the 200.200.0.0 - 200.200.255.255 range. The first job for the pentester will involve determining which of the 65536 IP addresses are assigned to a host, and which of those hosts are online/active. 
+
 ![image](https://github.com/user-attachments/assets/9529cf96-18c9-4e55-8a7e-19318308b6d2)
 ![image](https://github.com/user-attachments/assets/dbd1a4cd-3504-4223-8cb8-b0483d931307)
 
