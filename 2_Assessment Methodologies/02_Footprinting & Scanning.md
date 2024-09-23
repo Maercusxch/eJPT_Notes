@@ -206,4 +206,4 @@ The Transport layer fourth layer of the OSI model, plays a crucial role in facil
 ### TCP vs UDP 
 
 ![image](https://github.com/user-attachments/assets/6f788dcf-2a97-4927-a18f-039d778b764b)
-netstat -antp to see TCP connections Windows: netstat -ano to see TCP connections
+`netstat -antp` to see TCP connections Windows: `netstat -ano` to see TCP connections
