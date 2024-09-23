@@ -238,4 +238,4 @@ A company asks for you/your company to perform a pentest, and the following addr
 - **Host Discovery:** Nmap can identify live hosts on a network using techniques such as ICMP echo requests, ARP requests, or TCP/UDP probes.
 - **Port Scanning:** It can perform various types of port scans to discover open ports on target hosts.
 - **Service Version Detection:** Nmap can determine the versions of services running on open ports. This info helps in understanding the software stack and potential vulnerabilites associated with specific versions.
-- ***Operating System Fingerprinting:** Nmap can attempt to identify the operating system od target hosts based on characteristics observed during the scanning process.
+- **Operating System Fingerprinting:** Nmap can attempt to identify the operating system od target hosts based on characteristics observed during the scanning process.
