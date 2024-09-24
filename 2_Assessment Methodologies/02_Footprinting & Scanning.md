@@ -296,13 +296,15 @@ Example IP: 192.168.1.100
 - **Terminal**: `fping -a -g 192.168.1.0/24 2>/dev/null` shows only online IP's in that subnet
 
 
+
 ## Host discovery with NMAP
 
 ### Host discovery with NMAP Part I
 
 NMAP Format: `nmap scanoptions target`
 - `nmap -help` `man nmap` Help and description NMAP   /-sn to search in man nmap
-
+- `nmap -sn 192.168.1.0/24` Scans the whole domain
+- `nmap -sn 192.168.1.0 - 100 Scans this specific Ip range.
 
 
 
