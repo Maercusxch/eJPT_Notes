@@ -285,4 +285,5 @@ No response doesn't mean that the host is permanently offline; it also could be 
 ### Practical Ping Sweeps Commands 
 - **Terminal & CMD**: `ping 1.2.3.4` normal Ping request
 - **Terminal**: `ping -c 5 1.2.3.4 ` specify amount of packets you send
-- **CMD**: `ping -n 5 1.2.3.4 ` specify amount of packets you send
+- **CMD**: `ping ``-n`` 5 1.2.3.4 ` specify amount of packets you send
+- `ping 1.2.3.0`
