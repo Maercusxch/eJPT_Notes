@@ -283,7 +283,15 @@ No response doesn't mean that the host is permanently offline; it also could be 
 
 
 ### Practical Ping Sweeps Commands 
-- **Terminal & CMD**: `ping 1.2.3.4` normal Ping request
-- **Terminal**: `ping -c 5 1.2.3.4 ` specify amount of packets you send
-- **CMD**: `ping ``-n`` 5 1.2.3.4 ` specify amount of packets you send
-- `ping 1.2.3.0`
+
+Example IP: 192.168.1.100
+- **Terminal & CMD**: `ping 192.168.1.100` normal Ping request
+- **Terminal**: `ping -c 5192.168.1.100 ` specify amount of packets you send
+- **CMD**: `ping -n 5 192.168.1.100 ` specify amount of packets you send
+- **Terminal**: `ping 192.168.1.0` Pings every IP in subnet
+- **Terminal**: `man fping` description fping
+- **Terminal**: `fping -h` fping help menue
+- **Terminal**: `fping -a 192.168.1.100` normal fping request
+- **Terminal**: `fping -a -g 192.168.1.0/24` Pings every IP in subnet and gives feedback to it 
+- **Terminal**: `fping -a -g 192.168.1.0/24 2>/dev/null` shows only online IP's in that subnet
+- 
