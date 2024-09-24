@@ -280,3 +280,9 @@ The "Type" field in the ICMP header indicates the purpose/function of the ICMP m
 The Type value 8 represents Echo Request and the Type value 0 represents Echo Reply.*
 When Host is offline, the host will not recieve a IMCP Echo Reply.
 No response doesn't mean that the host is permanently offline; it also could be network congestion, temporary unavailability, or firewall setting that block ICMP traffic.
+
+
+### Practical Ping Sweeps Commands 
+- **Terminal & CMD**: `ping 1.2.3.4` normal Ping request
+- **Terminal**: `ping -c 5 1.2.3.4 ` specify amount of packets you send
+- **CMD**: `ping -n 5 1.2.3.4 ` specify amount of packets you send
