@@ -307,19 +307,30 @@ NMAP Format: `nmap scanoptions target`
 - `nmap -sn 192.168.1.0 - 100 Scans this specific Ip range.
 
 when you are connected to a physical connected network, sn / ping scan will utilize ARP protocol to perform Host discovery.
+The -sn command in Nmap only performs a host discovery scan without scanning ports.
 
-- `nmap sn 192.168.1.0/24 --send-ip` Now ICMP echo requests should also been sent
-- `nmap sn 192.168.1.100 192.168.1.105` Scans more than one IP
+- `nmap -sn 192.168.1.0/24 --send-ip` Now ICMP echo requests should also been sent
+- `nmap -sn 192.168.1.100 192.168.1.105` Scans more than one IP
 - `vim targets.txt` here you can insert IP's without typing manually
 - `nmap -sn -iL targets.txt` scans the IPs in the text file
 
 
 ### TCP SIN PING:
+
 - By default, it will send a tcp syn packet to port 80 on the target system. If port closed, host responses with RSD packet. if port is open, host response with TCP syn-ack packet = connection established. after that, an RSD packet is sent to reset that connection.
 In some cases, firewalls are configured to drop RSD packets, custom ports need to be specified. this is a way to perform port scanning with multiple IP
 - `nmap -sn -PS`: `-sn` = no port scan, `-PS` = override packets that the ping sends, specify TCP SYN ping. This command will send a SYN packet to the target on port 80. If host is online and port 80 is open, it will respond with a SYN-ACK. if closed, port will response with a RSD packet. If no response, its offline.
 - Using `nmap -sn -PS 192.168.1.100` is more effective in environments where ICMP traffic is restricted but TCP traffic is allowed. It provides a way to discover hosts that may not respond to standard ICMP echo requests.
+- `nmap -sn -PS22 192.168.1.100` scans the port 22 instead of the port 80
+- `nmap -sn -PS22-1000 192.168.1.100` scans all ports between 1 and 1000
 
+
+### TCP ACK PING
+
+NMAP will send a TCP Packet with ACK flagset to Port 80 of the target system. If it is acitve, it will return a RST packet.
+
+- `nmap -sn -PA 192.168.1.100`: 0 hosts up. change port, still not up
+ACK Ping gets blocked by systems. not reliable. ACK Scan is good for utilize if theres a firewall
 
 
 
