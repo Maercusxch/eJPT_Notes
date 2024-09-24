@@ -297,3 +297,6 @@ Example IP: 192.168.1.100
 
 
 ## Host discovery with NMAP
+
+NMAP Format: `nmap scanoptions target`
+- `nmap -help` `man nmap` Help and description NMAP
