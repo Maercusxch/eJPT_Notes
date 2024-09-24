@@ -1,4 +1,4 @@
-# Networking Primer
+ # Networking Primer
 
 
 It involves scanning open ports, mapping network topologies, and collecting information about hosts, their operating systems, IP addresses, and user accounts. This gathered data helps to generate a comprehensive technical blueprint of the target organization.
@@ -334,12 +334,16 @@ NMAP will send a TCP Packet with ACK flagset to Port 80 of the target system. If
 ACK Ping gets blocked by systems. not reliable. ACK Scan is good for utilize if theres a firewall
 
 
+### ICMP SPECIFIC PING SCAN
+
+Only ICMP eco requests are sent and not combined with any of the other packets we were using with the ping scan options.
+
+- `nmap -sn -PE 192.168.1.100`
+- `nmap -sn -PE 192.168.1.100 --send-ip` 
 
 
 
-
-
-
+## Port Scanning With NMAP
 
 
 
