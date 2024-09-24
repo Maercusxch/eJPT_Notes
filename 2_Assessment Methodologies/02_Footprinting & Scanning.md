@@ -296,4 +296,4 @@ Example IP: 192.168.1.100
 - **Terminal**: `fping -a -g 192.168.1.0/24 2>/dev/null` shows only online IP's in that subnet
 
 
-### Host discovery with NMAP
+## Host discovery with NMAP
