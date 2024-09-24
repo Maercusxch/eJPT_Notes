@@ -261,3 +261,21 @@ To enumerate the best host discovery technique for your needs, there are some co
 **TCP SYN Ping:**
 - Pros: TCP SYN ping is stealthier than ICMP and may bypass firewalls that allow outbond connections.
 - Cons: Some hosts may not respond to TCP SYN requests, and the results can be affected by firewalls and security devices.
+
+
+## Ping Sweeps
+
+A ping sweep is a network scanning technique used to discover live hosts within a specific IP address range on a network. The basic idea is to send a series of ICMP Echo Request (ping) messages to a range of IP addresses and observe the responses to determine which addresses are active or reachable.
+**Important:** Windows will block ICMP requests by default.
+Ping sweeps work by sending one or more specially crafted ICMP packets (Type 8 - echo request) to a host.
+If the host ist alive, the host replies with ICMP echo reply (Type 0) packet.
+**ICMP Echo Request:**
+- Type: 8
+- Code: 0 
+**ICMP Echo Reply:**
+- Type: 0
+- Code: 0
+The "Type" field in the ICMP header indicates the purpose/function of the ICMP message, and the "Code" field provides additional information or context related to the message type.
+The Type value 8 represents Echo Request and the Type value 0 represents Echo Reply.*
+When Host is offline, the host will not recieve a IMCP Echo Reply.
+No response doesn't mean that the host is permanently offline; it also could be network congestion, temporary unavailability, or firewall setting that block ICMP traffic.
