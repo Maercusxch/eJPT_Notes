@@ -301,13 +301,21 @@ Example IP: 192.168.1.100
 
 Wireshark Scan for a specific network connection: `sudo wireshark -i eth1`
 
-
-### Host discovery with NMAP Part I
-
 NMAP Format: `nmap scanoptions target`
 - `nmap -help` `man nmap` Help and description NMAP   /-sn to search in man nmap
 - `nmap -sn 192.168.1.0/24` Scans the whole domain
 - `nmap -sn 192.168.1.0 - 100 Scans this specific Ip range.
+
+when you are connected to a physical connected network, sn / ping scan will utilize ARP protocol to perform Host discovery.
+
+- `nmap sn 192.168.1.0/24 --send-ip` Now ICMP echo requests should also been sent
+- `nmap sn 192.168.1.100 192.168.1.105` Scans more than one IP
+- `vim targets.txt` here you can insert IP's without typing manually
+- `nmap -sn -iL targets.txt` scans the IPs in the text file
+- By default, it will send a tcp syn packet to port 80 on the target system. If port closed, host responses with RSD packet. if port is open, host response with TCP syn-ack packet = connection established. after that, an RSD packet is sent to reset that connection.
+In some cases, firewalls are configured to drop RSD packets, custom ports need to be specified. this is a way to perform port scanning with multiple IP
+- nmap -sn -PS: -sn = no port scan, -PS = override packets that the ping sends, specify TCP SYN ping. This command will send a SYN packet to the target on port 80. If host is online and port 80 is open, it will respond with a SYN-ACK. if closed, port will response with a RSD packet. If no response, its offline.
+- Using nmap -sn -PS [target ip] is more effective in environments where ICMP traffic is restricted but TCP traffic is allowed. It provides a way to discover hosts that may not respond to standard ICMP echo requests.
 
 
 
