@@ -275,6 +275,7 @@ If the host ist alive, the host replies with ICMP echo reply (Type 0) packet.
 **ICMP Echo Reply:**
 - Type: 0
 - Code: 0
+
 The "Type" field in the ICMP header indicates the purpose/function of the ICMP message, and the "Code" field provides additional information or context related to the message type.
 The Type value 8 represents Echo Request and the Type value 0 represents Echo Reply.*
 When Host is offline, the host will not recieve a IMCP Echo Reply.
