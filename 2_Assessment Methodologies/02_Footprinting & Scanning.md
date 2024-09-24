@@ -299,6 +299,9 @@ Example IP: 192.168.1.100
 
 ## Host discovery with NMAP
 
+Wireshark Scan for a specific network connection: `sudo wireshark -i eth1`
+
+
 ### Host discovery with NMAP Part I
 
 NMAP Format: `nmap scanoptions target`
