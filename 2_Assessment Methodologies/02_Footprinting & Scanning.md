@@ -298,5 +298,20 @@ Example IP: 192.168.1.100
 
 ## Host discovery with NMAP
 
+### Host discovery with NMAP Part I
+
 NMAP Format: `nmap scanoptions target`
-- `nmap -help` `man nmap` Help and description NMAP
+- `nmap -help` `man nmap` Help and description NMAP - /-sn to search in man nmap
+
+
+
+
+
+
+
+
+
+
+
+
+
