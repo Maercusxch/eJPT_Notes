@@ -329,7 +329,8 @@ In some cases, firewalls are configured to drop RSD packets, custom ports need t
 
 NMAP will send a TCP Packet with ACK flagset to Port 80 of the target system. If it is acitve, it will return a RST packet.
 
-- `nmap -sn -PA 192.168.1.100`: 0 hosts up. change port, still not up
+- `nmap -sn -PA 192.168.1.100`
+
 ACK Ping gets blocked by systems. not reliable. ACK Scan is good for utilize if theres a firewall
 
 
