@@ -1,4 +1,4 @@
- # Networking Primer
+# Networking Primer
 
 
 It involves scanning open ports, mapping network topologies, and collecting information about hosts, their operating systems, IP addresses, and user accounts. This gathered data helps to generate a comprehensive technical blueprint of the target organization.
@@ -343,7 +343,11 @@ Only ICMP eco requests are sent and not combined with any of the other packets w
 
 
 
-## Port Scanning With NMAP
+## Port Scanning, Service Version & OS Detection
 
+###Port Scanning with NMAP
 
+- `nmap 192.168.1.100` dafault nmap scan
+- `nmap -Pn 192.168.1.100` same command but without ping
+- 
 
