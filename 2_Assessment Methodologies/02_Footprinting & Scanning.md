@@ -347,7 +347,7 @@ Only ICMP eco requests are sent and not combined with any of the other packets w
 
 ## Port Scanning, Service Version & OS Detection
 
-###Port Scanning with NMAP
+### Port Scanning with NMAP
 
 NMAP will send a SYN packet to the target port, if the target port is open, it will response with a SYN-ACK packet. If it is closed it will respond with a RST packet. If nmap doesnt recieve a SYN-ACK or RST, there is a firewall or the filter. The port still can be open.
 
@@ -357,4 +357,13 @@ NMAP will send a SYN packet to the target port, if the target port is open, it w
 - `nmap -Pn -p 80 192.168.1.100` Specify specific port scan(80)
 - `nmap -Pn -p80,445,3389,8080 192.168.1.100` Specify multiple port scan (80,445,3389,8080)(If result =filtered: Windows firewall. When closed: No firewall)
 - `nmap -Pn -p1-100 192.168.1.100` Specify specific port range (1-100)
-- `nmap -Pn -p- 192.168.1.100`Scans entire TCP Port range
+- `nmap -Pn -p- 192.168.1.100` Scans entire TCP Port range
+- `nmap -Pn -sU -p 192.168.1.100` Scan for udp ports
+
+If non privileged user:
+- `nmap -Pn -sS 192.168.1.100`
+- `nmap -Pn -sT 192.168.1.100` TCP connect scan, default port scanning if no root or sudo. Loud on a network, gets detected easily. Completes the 3-way-handshake.
+
+
+### Service Version & OS Detection with NMAP
+
