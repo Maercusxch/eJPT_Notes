@@ -349,7 +349,7 @@ Only ICMP eco requests are sent and not combined with any of the other packets w
 
 ###Port Scanning with NMAP
 
-NMAP will send a SYN packet to the target port, if the target port is open, it will response with a SYN-ACK packet. If it is closed it will respond with a RST packet. If nmap doesnt recieve a SYN-ACK or RST, there is a firewall or the ports are filtered. The port still can be open.
+NMAP will send a SYN packet to the target port, if the target port is open, it will response with a SYN-ACK packet. If it is closed it will respond with a RST packet. If nmap doesnt recieve a SYN-ACK or RST, there is a firewall or the filter. The port still can be open.
 
 - `nmap 192.168.1.100` SYN port scan to 1000 most common ports 
 - `nmap -Pn 192.168.1.100` same command but without ping
