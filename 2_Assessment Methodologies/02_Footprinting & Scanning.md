@@ -245,6 +245,8 @@ A company asks for you/your company to perform a pentest, and the following addr
 
 In pentesting, host discovery is a crucial phase to identify live hosts on a network before further exploration and vulnerability assessment. Various techniques can be employed for host discovery, and the choice of technique depends on factors such as network characteristics, stealth requirements, and the goals of the penetration test.
 
+**Important**: A TCP Reset (RST) packet is used by a TCP sender to indicate that it will neither accept nor receive more data. 
+
 - **Ping Sweeps (ICMP Echo Requests):** Sending ICMP Echo Requests (ping) to a range of IP addresses to identify live hosts.
 - **ARP Scanning:** Using Address Resolution Protocol (ARP) requests to identify hosts within the same broadcast domain.
 - **TCP Syn Ping (Half-Open Scan):** Sending TCP SYN packets to a specific port (often port 80) to a check if a host is alive. If the host is alive, it respends with a TCP SYN-ACK. This technique is stealthier than ICMP ping.
@@ -347,7 +349,12 @@ Only ICMP eco requests are sent and not combined with any of the other packets w
 
 ###Port Scanning with NMAP
 
-- `nmap 192.168.1.100` dafault nmap scan
-- `nmap -Pn 192.168.1.100` same command but without ping
-- 
+NMAP will send a SYN packet to the target port, if the target port is open, it will response with a SYN-ACK packet. If it is closed it will respond with a RST packet. If nmap doesnt recieve a SYN-ACK or RST, there is a firewall or the ports are filtered. The port still can be open.
 
+- `nmap 192.168.1.100` SYN port scan to 1000 most common ports 
+- `nmap -Pn 192.168.1.100` same command but without ping
+- `nmap -F 192.168.1.100` F stands for Fast and scans only 100 of the most common ports
+- `nmap -Pn -p 80 192.168.1.100` Specify specific port scan(80)
+- `nmap -Pn -p80,445,3389,8080 192.168.1.100` Specify multiple port scan (80,445,3389,8080)(If result =filtered: Windows firewall. When closed: No firewall)
+- `nmap -Pn -p1-100 192.168.1.100` Specify specific port range (1-100)
+- `nmap -Pn -p- 192.168.1.100`Scans entire TCP Port range
