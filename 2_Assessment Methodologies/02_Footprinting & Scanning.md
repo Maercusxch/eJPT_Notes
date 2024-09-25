@@ -303,6 +303,8 @@ Example IP: 192.168.1.100
 
 Wireshark Scan for a specific network connection: `sudo wireshark -i eth1`
 
+- `ifconfig` displays only the enabled network interfaces that are connected to the system.
+
 NMAP Format: `nmap scanoptions target`
 - `nmap -help` `man nmap` Help and description NMAP   /-sn to search in man nmap
 - `nmap -sn 192.168.1.0/24` Scans the whole domain
