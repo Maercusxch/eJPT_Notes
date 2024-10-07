@@ -369,7 +369,7 @@ If non privileged user:
 
 ### Service Version & OS Detection with NMAP
 
-- Service Version: `-sV` Example: `nmap -T4 -sS -sV -p- 192.168.1.100
+- Service Version: `-sV` Example: `nmap -T4 -sS -sV -p- 192.168.1.100`
 - Operating System(OS) Version: `-O` Example: `nmap -T4 -sS -sV -O -p- 192.168.1.100`
 - Aggressive OS Version: `--osscan-guess` Example: `nmap -T4 -sS -sV -O --osscan-guess -p- 192.168.1.100`
 - Aggressive Service Version: `--version-intensity 1-9` Example: `nmap -T4 -sS -sV --version-intensity 8 -O --osscan-guess -p- 192.168.1.100`
