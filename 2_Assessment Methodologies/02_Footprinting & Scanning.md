@@ -384,7 +384,7 @@ NSE allows users to write and share scripts to automate a wide range of tasks. I
 - Example: `http-enum.nse` performs basic http enumeration
 - 
 `nmap -sS -sV -sC -p- -T4 [target IP]` :Default nmap script scan. Provides us OS, kernel etc.
-Now, i could look for vulnerabilites that affect the version of mongoDB or ubuntu (target OS) check, which other mongoDB scripts are available. nmap --help-help=mongodb-databases
-- `nmap -sS -sV --script=mongodb-info -p- -T4 [target IP]` run sycript
+Now, i could look for vulnerabilites that affect the version of mongoDB or ubuntu (target OS) check, which other mongoDB scripts are available. `nmap --help-help=mongodb-databases`
+`nmap -sS -sV --script=mongodb-info -p- -T4 [target IP]` run sycript
 Another service that is running is memcached, so we check for memcached scripts: `ls -al /usr/share/nmap/scripts/ | grep -e "memcached"`
 Lets see what it does: `nmap --script-help=memcached-info` run script: `nmap -sS -sV --script=memcached-info -p- -T4 [target IP]` =  Authentication is not required, so theres a potential vulnerability.
