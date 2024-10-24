@@ -286,14 +286,14 @@ No response doesn't mean that the host is permanently offline; it also could be 
 
 ### Practical Ping Sweeps Commands 
 
-Example IP: 192.168.1.100
-- **Terminal & CMD**: `ping 192.168.1.100` normal Ping request
-- **Terminal**: `ping -c 5192.168.1.100 ` specify amount of packets you send
-- **CMD**: `ping -n 5 192.168.1.100 ` specify amount of packets you send
+Example IP: [target IP]
+- **Terminal & CMD**: `ping [target IP]` normal Ping request
+- **Terminal**: `ping -c 5[target IP] ` specify amount of packets you send
+- **CMD**: `ping -n 5 [target IP] ` specify amount of packets you send
 - **Terminal**: `ping 192.168.1.0` Pings every IP in subnet
 - **Terminal**: `man fping` description fping
 - **Terminal**: `fping -h` fping help menue
-- **Terminal**: `fping -a 192.168.1.100` normal fping request
+- **Terminal**: `fping -a [target IP]` normal fping request
 - **Terminal**: `fping -a -g 192.168.1.0/24` Pings every IP in subnet and gives feedback to it 
 - **Terminal**: `fping -a -g 192.168.1.0/24 2>/dev/null` shows only online IP's in that subnet
 
@@ -314,7 +314,7 @@ when you are connected to a physical connected network, sn / ping scan will util
 The -sn command in Nmap only performs a host discovery scan without scanning ports.
 
 - `nmap -sn 192.168.1.0/24 --send-ip` Now ICMP echo requests should also been sent
-- `nmap -sn 192.168.1.100 192.168.1.105` Scans more than one IP
+- `nmap -sn [target IP] 192.168.1.105` Scans more than one IP
 - `vim targets.txt` here you can insert IP's without typing manually
 - `nmap -sn -iL targets.txt` scans the IPs in the text file
 
@@ -324,16 +324,16 @@ The -sn command in Nmap only performs a host discovery scan without scanning por
 - By default, it will send a tcp syn packet to port 80 on the target system. If port closed, host responses with RSD packet. if port is open, host response with TCP syn-ack packet = connection established. after that, an RSD packet is sent to reset that connection.
 In some cases, firewalls are configured to drop RSD packets, custom ports need to be specified. this is a way to perform port scanning with multiple IP
 - `nmap -sn -PS`: `-sn` = no port scan, `-PS` = override packets that the ping sends, specify TCP SYN ping. This command will send a SYN packet to the target on port 80. If host is online and port 80 is open, it will respond with a SYN-ACK. if closed, port will response with a RSD packet. If no response, its offline.
-- Using `nmap -sn -PS 192.168.1.100` is more effective in environments where ICMP traffic is restricted but TCP traffic is allowed. It provides a way to discover hosts that may not respond to standard ICMP echo requests.
-- `nmap -sn -PS22 192.168.1.100` scans the port 22 instead of the port 80
-- `nmap -sn -PS22-1000 192.168.1.100` scans all ports between 1 and 1000
+- Using `nmap -sn -PS [target IP]` is more effective in environments where ICMP traffic is restricted but TCP traffic is allowed. It provides a way to discover hosts that may not respond to standard ICMP echo requests.
+- `nmap -sn -PS22 [target IP]` scans the port 22 instead of the port 80
+- `nmap -sn -PS22-1000 [target IP]` scans all ports between 1 and 1000
 
 
 ### TCP ACK PING
 
 NMAP will send a TCP Packet with ACK flagset to Port 80 of the target system. If it is acitve, it will return a RST packet.
 
-- `nmap -sn -PA 192.168.1.100`
+- `nmap -sn -PA [target IP]`
 
 ACK Ping gets blocked by systems. not reliable. ACK Scan is good for utilize if theres a firewall
 
@@ -342,8 +342,8 @@ ACK Ping gets blocked by systems. not reliable. ACK Scan is good for utilize if 
 
 Only ICMP eco requests are sent and not combined with any of the other packets we were using with the ping scan options.
 
-- `nmap -sn -PE 192.168.1.100`
-- `nmap -sn -PE 192.168.1.100 --send-ip` 
+- `nmap -sn -PE [target IP]`
+- `nmap -sn -PE [target IP] --send-ip` 
 
 
 
@@ -353,23 +353,38 @@ Only ICMP eco requests are sent and not combined with any of the other packets w
 
 NMAP will send a SYN packet to the target port, if the target port is open, it will response with a SYN-ACK packet. If it is closed it will respond with a RST packet. If nmap doesnt recieve a SYN-ACK or RST, there is a firewall or the filter. The port still can be open.
 
-- `nmap 192.168.1.100` SYN port scan to 1000 most common ports 
-- `nmap -Pn 192.168.1.100` same command but without ping
-- `nmap -F 192.168.1.100` F stands for Fast and scans only 100 of the most common ports
-- `nmap -Pn -p 80 192.168.1.100` Specify specific port scan(80)
-- `nmap -Pn -p80,445,3389,8080 192.168.1.100` Specify multiple port scan (80,445,3389,8080)(If result =filtered: Windows firewall. When closed: No firewall)
-- `nmap -Pn -p1-100 192.168.1.100` Specify specific port range (1-100)
-- `nmap -Pn -p- 192.168.1.100` Scans entire TCP Port range
-- `nmap -Pn -sU -p 192.168.1.100` Scan for udp ports
+- `nmap [target IP]` SYN port scan to 1000 most common ports 
+- `nmap -Pn [target IP]` same command but without ping
+- `nmap -F [target IP]` F stands for Fast and scans only 100 of the most common ports
+- `nmap -Pn -p 80 [target IP]` Specify specific port scan(80)
+- `nmap -Pn -p80,445,3389,8080 [target IP]` Specify multiple port scan (80,445,3389,8080)(If result =filtered: Windows firewall. When closed: No firewall)
+- `nmap -Pn -p1-100 [target IP]` Specify specific port range (1-100)
+- `nmap -Pn -p- [target IP]` Scans entire TCP Port range
+- `nmap -Pn -sU -p [target IP]` Scan for udp ports
 
 If non privileged user:
-- `nmap -Pn -sS 192.168.1.100`
-- `nmap -Pn -sT 192.168.1.100` TCP connect scan, default port scanning if no root or sudo. Loud on a network, gets detected easily. Completes the 3-way-handshake.
+- `nmap -Pn -sS [target IP]`
+- `nmap -Pn -sT [target IP]` TCP connect scan, default port scanning if no root or sudo. Loud on a network, gets detected easily. Completes the 3-way-handshake.
 
 
 ### Service Version & OS Detection with NMAP
 
-- Service Version: `-sV` Example: `nmap -T4 -sS -sV -p- 192.168.1.100`
-- Operating System(OS) Version: `-O` Example: `nmap -T4 -sS -sV -O -p- 192.168.1.100`
-- Aggressive OS Version: `--osscan-guess` Example: `nmap -T4 -sS -sV -O --osscan-guess -p- 192.168.1.100`
-- Aggressive Service Version: `--version-intensity 1-9` Example: `nmap -T4 -sS -sV --version-intensity 8 -O --osscan-guess -p- 192.168.1.100`
+- Service Version: `-sV` Example: `nmap -T4 -sS -sV -p- [target IP]`
+- Operating System(OS) Version: `-O` Example: `nmap -T4 -sS -sV -O -p- [target IP]`
+- Aggressive OS Version: `--osscan-guess` Example: `nmap -T4 -sS -sV -O --osscan-guess -p- [target IP]`
+- Aggressive Service Version: `--version-intensity 1-9` Example: `nmap -T4 -sS -sV --version-intensity 8 -O --osscan-guess -p- [target IP]`
+
+
+### Nmap Scripting Engine (NSE)
+
+NSE allows users to write and share scripts to automate a wide range of tasks. It is essentially designed to facilitate the automation of various tasks. It was created to automate and facilitate port scanning, service version detection, vulnerability scanning, exploitation, brute forcing, etc. Nmap scripts have the extension `.nse` and are programmed in the lua programming language.
+
+- `ls -al /usr/share/nmap/scripts/` Directory for already created and verified scripts
+- `ls -al /usr/share/nmap/scripts/ | grep -e "http"` limits the results to only http scripts
+- Example: `http-enum.nse` performs basic http enumeration
+- 
+`nmap -sS -sV -sC -p- -T4 [target IP]` :Default nmap script scan. Provides us OS, kernel etc.
+Now, i could look for vulnerabilites that affect the version of mongoDB or ubuntu (target OS) check, which other mongoDB scripts are available. nmap --help-help=mongodb-databases
+- `nmap -sS -sV --script=mongodb-info -p- -T4 [target IP]` run sycript
+Another service that is running is memcached, so we check for memcached scripts: `ls -al /usr/share/nmap/scripts/ | grep -e "memcached"`
+Lets see what it does: `nmap --script-help=memcached-info` run script: `nmap -sS -sV --script=memcached-info -p- -T4 [target IP]` =  Authentication is not required, so theres a potential vulnerability.
