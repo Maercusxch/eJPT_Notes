@@ -388,3 +388,5 @@ Now, i could look for vulnerabilites that affect the version of mongoDB or ubunt
 `nmap -sS -sV --script=mongodb-info -p- -T4 [target IP]` run sycript
 Another service that is running is memcached, so we check for memcached scripts: `ls -al /usr/share/nmap/scripts/ | grep -e "memcached"`
 Lets see what it does: `nmap --script-help=memcached-info` run script: `nmap -sS -sV --script=memcached-info -p- -T4 [target IP]` =  Authentication is not required, so theres a potential vulnerability.
+![image](https://github.com/user-attachments/assets/2b28a3f1-ba52-48e2-a6a9-8730967c53ac)
+
