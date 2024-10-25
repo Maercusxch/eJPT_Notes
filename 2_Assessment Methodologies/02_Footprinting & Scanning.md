@@ -391,8 +391,24 @@ Lets see what it does: `nmap --script-help=memcached-info` run script: `nmap -sS
 ![image](https://github.com/user-attachments/assets/2b28a3f1-ba52-48e2-a6a9-8730967c53ac)
 
 
-### Firewall Detection & IDS Evasion
+### Firewall Detection 
 
 After a common port Scan (Example: `nmap -Pn -sS -F [target IP]`) there always come Not shown Ports back. If `92 *closed* ports` are returned, there is no firewall or filtering active, if `92 *filtered* ports` are returned, there is a firewall or filtering active.
 To confirm this, you can run an ACK scan and specify the ports, you know are open. Example: `nmap -Pn -sA -p445,3389 [target IP]`
 
+
+### IDS evasion and spoofing
+
+One techniques you can use to make it harder for IDS to detect your scan is to fragment your packets into smaller packets. This means that IDS cannot really tell what is going on.
+
+- `-f` to fragment the packets
+- Exampe:`nmap -Pn -sS -sV -p80,445,3389 -f [target IP]`
+- `--mtu` The Maximum transmission unit allows you to specify the minimum/maximum transfer of bytes to be sent.
+- Example: `nmap -Pn -sS -sV -p80,445,3389 -f --mtu [target IP]`
+- `--ttl` Set IP time to live field
+- `--data-lenght` Append random data to sent packets
+
+On every network wihtin the subnet / network is reserved for the gateway. For that, we need to be connected to the network. With spoofing we make it look like our scans come from the gateway IP. Now if there is a networkadministrator or anotmer net protector it will look like the packets are sent by the gateway IP and it is not as suspicious as when they are sent by a normal client.
+
+- `nmap -Pn -sS -sV -p445,3389 -f --data-length 200 -D [kali linux IP (Gateway)], [target IP]` We can see in Wireshark that the source is the IP from the gateway.
+- `nmap -Pn -sS -sV -p445,3389 -f --data-length 200 **-g 53** -D [kali linux IP (Gateway)], [target IP]` We can change the source port to make it look even less suspicious.
