@@ -390,3 +390,7 @@ Another service that is running is memcached, so we check for memcached scripts:
 Lets see what it does: `nmap --script-help=memcached-info` run script: `nmap -sS -sV --script=memcached-info -p- -T4 [target IP]` =  Authentication is not required, so theres a potential vulnerability.
 ![image](https://github.com/user-attachments/assets/2b28a3f1-ba52-48e2-a6a9-8730967c53ac)
 
+
+### Firewall Detection & IDS Evasion
+
+After a normal Scan (Example: nmap -Pn -sS -F [target IP]) there 
