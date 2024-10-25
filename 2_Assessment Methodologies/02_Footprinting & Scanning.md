@@ -414,6 +414,11 @@ On every network wihtin the subnet / network is reserved for the gateway. For th
 - `nmap -Pn -sS -sV -p445,3389 -f --data-length 200 **-g 53** -D [kali linux IP (Gateway)], [target IP]` We can change the source port to make it look even less suspicious.
 
 
-## Optimizing Nmap Scans
+### Optimizing Nmap Scans
 
+- `--host-timeout 5s` Give up on target after specific time (Ahmed Alexis recommends 30 seconds)
+- Example: `nmap -Pn -sS -F --host-timeout 5s [target IP]`
+
+
+### Nmap Output Formats
 
