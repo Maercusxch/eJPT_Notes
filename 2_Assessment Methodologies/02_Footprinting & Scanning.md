@@ -412,3 +412,8 @@ On every network wihtin the subnet / network is reserved for the gateway. For th
 
 - `nmap -Pn -sS -sV -p445,3389 -f --data-length 200 -D [kali linux IP (Gateway)], [target IP]` We can see in Wireshark that the source is the IP from the gateway.
 - `nmap -Pn -sS -sV -p445,3389 -f --data-length 200 **-g 53** -D [kali linux IP (Gateway)], [target IP]` We can change the source port to make it look even less suspicious.
+
+
+## Optimizing Nmap Scans
+
+
