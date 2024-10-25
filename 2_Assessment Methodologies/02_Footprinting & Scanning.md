@@ -393,4 +393,4 @@ Lets see what it does: `nmap --script-help=memcached-info` run script: `nmap -sS
 
 ### Firewall Detection & IDS Evasion
 
-After a normal Scan (Example: nmap -Pn -sS -F [target IP]) there 
+After a common port Scan (Example: `nmap -Pn -sS -F [target IP]`) there always come Not shown Ports back. If `92 *closed* ports' are returned, there is no firewall or filtering active, if `92 *filtered* ports' are returned, there is a firewall or filtering active.
