@@ -2,7 +2,7 @@
 
 ### Discover, Scand and Export NMAP Scan Results (Example)
 
- **Discover available live hosts and their open ports using Nmap and identify the running services and applications.**
+Discover available live hosts and their open ports using Nmap and identify the running services and applications.
  
 - ping demo.ine.local --> bocked
 - nmap demo.ine.local --> blocked
