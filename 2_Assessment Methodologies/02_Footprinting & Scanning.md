@@ -369,6 +369,9 @@ If non privileged user:
 **About Filtered port:**
 Nmap cannot determine whether the port is open because packet filtering prevents its probes from reaching the port. The filtering could be from a dedicated firewall device, router rules, or host-based firewall software. These ports frustrate attackers because they provide so little information. Sometimes they respond with ICMP error messages such as type 3 code 13 (destination unreachable: communication administratively prohibited), but filters that simply drop probes without responding are far more common. This forces Nmap to retry several times just in case the probe was dropped due to network congestion rather than filtering. This slows down the scan dramatically.
 
+If we want to discover the running application on port 80, we could use option -sV, and this option is used to determine the application version information. `nmap -Pn -sV -p 80 demo.ine.local`
+This is one of the ways we can discover a machine that is behind a firewall, forcing tools for scanning.
+
 ### Service Version & OS Detection with NMAP
 
 - Service Version: `-sV` Example: `nmap -T4 -sS -sV -p- [target IP]`
