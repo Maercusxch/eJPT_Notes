@@ -357,7 +357,7 @@ NMAP will send a SYN packet to the target port, if the target port is open, it w
 - `nmap -Pn [target IP]` same command but without ping
 - `nmap -F [target IP]` F stands for Fast and scans only 100 of the most common ports
 - `nmap -Pn -p 80 [target IP]` Specify specific port scan(80)
-- `nmap -Pn -p80,445,3389,8080 [target IP]` Specify multiple port scan (80,445,3389,8080)(If result =filtered: Windows firewall. When closed: No firewall)
+- `nmap -Pn -p80,445,3389,8080 [target IP]` Specify multiple port scan (80,445,3389,8080)
 - `nmap -Pn -p1-100 [target IP]` Specify specific port range (1-100)
 - `nmap -Pn -p- [target IP]` Scans entire TCP Port range
 - `nmap -Pn -sU -p [target IP]` Scan for udp ports
@@ -366,6 +366,8 @@ If non privileged user:
 - `nmap -Pn -sS [target IP]`
 - `nmap -Pn -sT [target IP]` TCP connect scan, default port scanning if no root or sudo. Loud on a network, gets detected easily. Completes the 3-way-handshake.
 
+**About Filtered port:**
+Nmap cannot determine whether the port is open because packet filtering prevents its probes from reaching the port. The filtering could be from a dedicated firewall device, router rules, or host-based firewall software. These ports frustrate attackers because they provide so little information. Sometimes they respond with ICMP error messages such as type 3 code 13 (destination unreachable: communication administratively prohibited), but filters that simply drop probes without responding are far more common. This forces Nmap to retry several times just in case the probe was dropped due to network congestion rather than filtering. This slows down the scan dramatically.
 
 ### Service Version & OS Detection with NMAP
 
