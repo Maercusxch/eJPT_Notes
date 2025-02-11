@@ -32,6 +32,6 @@ Discover available live hosts and their open ports using Nmap and identify the r
 - msf6s: `hosts`
 - msf6: `services`
 - msf5: `nmap -Pn -sS -sV -O -p445 [target IP] `
-- msf6s: `hosts`, metasploit framework updates fiel
+- msf6s: `hosts`, metasploit framework updates file
 - Grepable Format: `nmap -Pn -sS -F -T4 [target IP] -oG nmap_grep.txt`
 - `cat nmap_gep.txt`, we see that its a grepable format
