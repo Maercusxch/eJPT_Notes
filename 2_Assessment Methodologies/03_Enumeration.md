@@ -38,9 +38,9 @@ Discover available live hosts and their open ports using Nmap and identify the r
 
 ### Importing Nmap Scan Results into MSF
 
-Exporting Nmap scan: `nmap -Pn -sV -O -oX nmapscan.xml demo.ine.local`
-Start postgresql database service: `service postgresql start`
-Start the Metasploit Framework console: `msfconsole`
-Verify that the MSF database is connected: `db_status`
-Import the the Nmap Scan Results: `db_import nmapscan.xml`
-Check the results: `hosts` and `services`
+- Exporting Nmap scan: `nmap -Pn -sV -O -oX nmapscan.xml demo.ine.local`
+- Start postgresql database service: `service postgresql start`
+- Start the Metasploit Framework console: `msfconsole`
+- Verify that the MSF database is connected: `db_status`
+- Import the the Nmap Scan Results: `db_import nmapscan.xml`
+- Check the results: `hosts` and `services`
