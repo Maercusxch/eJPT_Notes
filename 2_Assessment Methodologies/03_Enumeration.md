@@ -95,3 +95,5 @@ An Auxiliary Module is a type of module within a system that includes exploits w
 - `set RHOSTS 192.102.202.3`
 - Because we already configured the route(so that the Scan comes from the exploited machine) we can run the scan: `run`
 - leave module: `back`
+
+## Service Enumeration
