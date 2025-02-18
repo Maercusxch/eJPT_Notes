@@ -72,7 +72,7 @@ An Auxiliary Module is a type of module within a system that includes exploits w
 - `set RHOST 192.168.20.3`
 - `run`
 
-**Exploiting XODA-Service (what we just curled)**set
+**Exploiting XODA-Service (what we just curled)**
 - `search Xoda`
 - `use exploit/unix/webapp/xoda_file_upload`
 - `show options`
