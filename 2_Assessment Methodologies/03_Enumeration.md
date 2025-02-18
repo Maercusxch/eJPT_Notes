@@ -1,6 +1,8 @@
-# Port Scanning and Enumeration with NMAP
+# 03_Enumeration
 
-### Discover, Scand and Export NMAP Scan Results (Example)
+## Nmap Scripting Engine (NSE)
+
+### Discover, Scan and Export NMAP Scan Results (Example)
 
 Discover available live hosts and their open ports using Nmap and identify the running services and applications.
  
