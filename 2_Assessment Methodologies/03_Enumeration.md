@@ -97,3 +97,24 @@ An Auxiliary Module is a type of module within a system that includes exploits w
 - leave module: `back`
 
 ## Service Enumeration
+
+### FTP Enumeration
+
+FTP(File Transfer Protocol) uses TCP port 21 and is used to facilitate file sharing between a server and clients.
+NOTE: FTP authentication utilizes a username and password combination, however, in some cases an improperly configured FTP server can be logged into anonymously.
+
+Practical:
+`service postgresql start`
+`ifconfig`
+`msfconsole`
+`workspace -a FTP_ENUM`
+`search portscan`
+`use auxiliary/scanner/portscan/tcp`
+`options`
+`set RHOST` 192.10.156.3
+`run` --> FTP service is running
+`search ftp` are to much modules, specify the search --> `search type:auxiliary name:ftp`
+`use auxiliary/scanner/ftp/ftp_version`
+`set RHOST 192.10.156.3`
+`run` = ![image](https://github.com/user-attachments/assets/eab00222-7a14-4ba3-ad0b-1c8a07c48fcf)
+
