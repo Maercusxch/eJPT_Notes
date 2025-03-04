@@ -50,6 +50,9 @@ Discover available live hosts and their open ports using Nmap and identify the r
 ### Auxiliary Modules
 An Auxiliary Module is a type of module within a system that includes exploits without payloads and enhances the functionality of the system by performing tasks like remote system scanning and fingerprinting. They are used to perform functionality, discovery and fuzzing. Against NMAP scans, auxiliary modules are more effective in the post-exploitation phase because they allow us to identify whether the server or PC, whose IP we have, is part of an internal network. Additionally, this may enable us to exploit other devices.
 
+**Set Global Variable**
+- `setg RHOST 192.117.32.3`
+
 **Practical:**
 - First check your IP address: `ifconfig`
 - Make sure the postgreSQL service is started: `service postgresql start`
@@ -103,7 +106,7 @@ An Auxiliary Module is a type of module within a system that includes exploits w
 FTP(File Transfer Protocol) uses TCP port 21 and is used to facilitate file sharing between a server and clients.
 NOTE: FTP authentication utilizes a username and password combination, however, in some cases an improperly configured FTP server can be logged into anonymously.
 
-**Enumorate Practical:**
+**FTP Enumoration Practical:**
 - `service postgresql start`
 - `ifconfig`
 - `msfconsole`
@@ -137,3 +140,18 @@ NOTE: FTP authentication utilizes a username and password combination, however, 
 - `ftp 192.94.227.3` connect to ftp, afterwards type in user and password
 - `get secret.txt`
 - `cat secret.txt`
+
+### SMB Enumeration
+
+SMB(Server Message Block) is a network file sharing protocol that is used to facilitate the sharing of files and devices between computer on a local network. Now SMB uses port 445(TCP), originally, SMB ran ob top of NetBIOS using port 139.
+SAMBA is the Linux implementation of SMB, and allows Windows systems to access Linux shares and devices.
+
+**SMB Enumeration Practical**
+
+- `service postgresql start`
+- `ifconfig`
+- `msfconsole`
+- `workspace -a SMB_ENUM`
+- `workspace`
+- `search SMB`
+- `search type:auxiliary name:smb`
