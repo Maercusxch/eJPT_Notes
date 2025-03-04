@@ -161,7 +161,20 @@ SAMBA is the Linux implementation of SMB, and allows Windows systems to access L
 - `search type:auxiliary name:smb`
 - `use auxiliary/scanner/smb/smb_version`
 - `options`
+- `setg RHOSTS 192.117.32.3`
 - `run`
 ![image](https://github.com/user-attachments/assets/49f40e3f-2727-47c9-9f90-c78726bfd592)
 
+**Try to enumorate SMB Users and Shares**
+- `search type:auxiliary name:smb`
+- `use auxiliary/scanner/smb/smb_enumusers`
+- `options`
+- `run` = we found some interesting Users, now we look for shares
+- `search type:auxiliary name:smb`
+- `use auxiliary/scanner/smb/smb_enumshares`
+- `options`
+- `set ShowFiles true` = so we get detailed information while spidering
+- `run` = now we see the Users that are in the Share
+![image](https://github.com/user-attachments/assets/ca0930ff-e810-441f-af97-2caa14ab6165)
 
+**Brutforce these Users**
