@@ -164,6 +164,7 @@ SAMBA is the Linux implementation of SMB, and allows Windows systems to access L
 - `options`
 - `setg RHOSTS 192.117.32.3`
 - `run`
+
 ![image](https://github.com/user-attachments/assets/49f40e3f-2727-47c9-9f90-c78726bfd592)
 
 **Try to enumorate SMB Users and Shares**
