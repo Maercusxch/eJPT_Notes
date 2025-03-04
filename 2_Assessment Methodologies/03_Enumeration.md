@@ -180,3 +180,6 @@ SAMBA is the Linux implementation of SMB, and allows Windows systems to access L
 ![image](https://github.com/user-attachments/assets/c09d6faf-d84f-43a7-8c0d-e9fcb79b872c)
 
 **Brutforce these Users**
+- `search smb_login`
+- `use auxiliary/scanner/smb/smb_login`
+- `options`
