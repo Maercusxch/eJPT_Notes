@@ -175,6 +175,6 @@ SAMBA is the Linux implementation of SMB, and allows Windows systems to access L
 - `options`
 - `set ShowFiles true` = so we get detailed information while spidering
 - `run` = now we see the Users that are in the Share
-![image](https://github.com/user-attachments/assets/ca0930ff-e810-441f-af97-2caa14ab6165)
+![image](https://github.com/user-attachments/assets/1f26440d-9549-4c12-b69f-55463a7c1178)
 
 **Brutforce these Users**
