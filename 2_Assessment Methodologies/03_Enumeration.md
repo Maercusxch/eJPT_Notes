@@ -122,6 +122,7 @@ NOTE: FTP authentication utilizes a username and password combination, however, 
 - `use auxiliary/scanner/ftp/ftp_version`
 - `set RHOST 192.10.156.3`
 - `run`
+
 ![image](https://github.com/user-attachments/assets/eab00222-7a14-4ba3-ad0b-1c8a07c48fcf)
 
 **Enumorate Brutforce module**
