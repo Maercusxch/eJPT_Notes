@@ -106,7 +106,9 @@ An Auxiliary Module is a type of module within a system that includes exploits w
 FTP(File Transfer Protocol) uses TCP port 21 and is used to facilitate file sharing between a server and clients.
 NOTE: FTP authentication utilizes a username and password combination, however, in some cases an improperly configured FTP server can be logged into anonymously.
 
-**FTP Enumoration Practical:**
+### FTP Enumoration Practical:
+
+**FTP Service Version Enumeration**
 - `service postgresql start`
 - `ifconfig`
 - `msfconsole`
@@ -146,8 +148,9 @@ NOTE: FTP authentication utilizes a username and password combination, however, 
 SMB(Server Message Block) is a network file sharing protocol that is used to facilitate the sharing of files and devices between computer on a local network. Now SMB uses port 445(TCP), originally, SMB ran ob top of NetBIOS using port 139.
 SAMBA is the Linux implementation of SMB, and allows Windows systems to access Linux shares and devices.
 
-**SMB Enumeration Practical**
+### SMB Enumeration Practical:
 
+**SMB Service Version Enumeration**
 - `service postgresql start`
 - `ifconfig`
 - `msfconsole`
@@ -155,3 +158,9 @@ SAMBA is the Linux implementation of SMB, and allows Windows systems to access L
 - `workspace`
 - `search SMB`
 - `search type:auxiliary name:smb`
+- `use auxiliary/scanner/smb/smb_version`
+- `options`
+- `run`
+![image](https://github.com/user-attachments/assets/49f40e3f-2727-47c9-9f90-c78726bfd592)
+
+
