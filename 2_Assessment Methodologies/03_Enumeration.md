@@ -215,3 +215,22 @@ When your in the smb console it should look like this:y<
 ![image](https://github.com/user-attachments/assets/d563c97d-97ba-4282-a2a5-d8ece667b519)
 
 
+### Web Server Enumeration
+
+Web servers utilize HTTP (Hypertext Transfer Protocol) to facilitate the communication between clients and the web server. HTTP is an application layer protocol that utilizes TCP port 80 for communication. When you set up a SSL certificate for encription, the is called HTTPS (Hypertext Transfer Protocol Secure) and utilizes TCP port 443.
+
+### Web Server Enumeration Practical:
+
+**Web Server Version Enumeration**
+- `service postgresql start`
+- `msfconsole`
+- `workspace -a WEB_ENUM`
+- `ifconfig`
+- `setg RHOSTS 192.118.217.3`
+- `setg RHOST 192.118.217.3`
+- `search HTTP`
+- `search type:auxiliary name:HTTP`
+- `use auxiliary/scanner/http/http_version`
+- `options` = RHOSTS is already set. We are dealing with a Webserver without an SSL Certificate, so we can use port 80 and set the value to false, if your Webserver uses HTTPS you have to change this.
+- `run`
+
