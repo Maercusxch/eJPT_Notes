@@ -403,3 +403,27 @@ In our situation we were successfull, however when you can't fint matching crede
 - `set CHECK_FALSE false` disable that it checks for false positives (random username)
 - `run`
 
+### SMTP Enumeration
+
+SMTP (Simple Mail Transfer Protocol) is a communication protocol that is used for the transmission of email. SMTP uses TCP port 25 by default. It is can also be configured to run on TCP port 465 and 587.
+
+### Practical SMTP Enumeration
+
+**SMTP Service Version Enumeration**
+- `service postgresql start`
+- `msfconsole`
+- `workspace -a SMTP_ENUM`
+- `ifconfig`
+- `setg RHOSTS 192.215.12.3`
+- `setg RHOST 192.215.12.3`
+- In this case we know smtp is running on port 25, normally you have to perform a postscan first.
+- `search type:auxiliary name:smtp`
+- `use auxiliary/scanner/smtp/smtp_version`
+- `options`
+- `run`
+
+**SMTP Useraccount Enumeration**
+- `search type:auxiliary name:smtp`
+- `use auxiliary/scanner/smtp/smtp_enum`
+- `options`
+- `run`
