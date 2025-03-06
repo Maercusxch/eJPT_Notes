@@ -218,6 +218,7 @@ When your in the smb console it should look like this:y<
 ### Web Server Enumeration
 
 Web servers utilize HTTP (Hypertext Transfer Protocol) to facilitate the communication between clients and the web server. HTTP is an application layer protocol that utilizes TCP port 80 for communication. When you set up a SSL certificate for encription, the is called HTTPS (Hypertext Transfer Protocol Secure) and utilizes TCP port 443.
+Additionally, important to note is the robots.txt file. The robots.txt file ist stored at the root of a webserver and is used to prevent search engines from indexing specific directorys and files, that are hosted on that web server.
 
 ### Web Server Enumeration Practical:
 
@@ -234,3 +235,27 @@ Web servers utilize HTTP (Hypertext Transfer Protocol) to facilitate the communi
 - `options` = RHOSTS is already set. We are dealing with a Webserver without an SSL Certificate, so we can use port 80 and set the value to false, if your Webserver uses HTTPS you have to change this.
 - `run`
 
+![image](https://github.com/user-attachments/assets/4c855d6c-ddef-4468-be04-464d12ff1160)
+
+**HTTP_Header Enumeration**
+- `search http_header`
+- `use auxiliary/scanner/http/http_header`
+- `options`
+- `run`
+
+![image](https://github.com/user-attachments/assets/bcf7c393-1c44-4a6b-9796-82e2e5d41d34)
+
+**robots.txt file Enumeration**
+- `search robots_txt`
+- `use auxiliary/scanner/http/robots_txt`
+- `options`
+- `run`
+
+![image](https://github.com/user-attachments/assets/73357b9f-97d2-48c9-b805-39f92d787d90)
+
+- `curl http://192.188.17.3/data/`
+- `curl http://192.188.17.3/secure/`
+
+![Uploading image.png…]()
+
+- This means this sections is password secured
