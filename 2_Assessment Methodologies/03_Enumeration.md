@@ -374,7 +374,7 @@ SSH (Secure Shell) is a remote administration protocol that offers encryption an
 **SSH Service Version Enumeration**
 - `service postgresql start`
 - `msfconsole`
-- `workspace -a WEB_ENUM`
+- `workspace -a SSH_ENUM`
 - `ifconfig`
 - `setg RHOSTS 192.171.193.3`
 - `setg RHOST 192.171.193.3`
