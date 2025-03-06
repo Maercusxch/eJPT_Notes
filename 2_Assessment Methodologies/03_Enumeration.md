@@ -256,6 +256,6 @@ Additionally, important to note is the robots.txt file. The robots.txt file ist 
 - `curl http://192.188.17.3/data/`
 - `curl http://192.188.17.3/secure/`
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/26fb24c2-672c-42c1-8580-912acc06892b)
 
 - This means this sections is password secured
