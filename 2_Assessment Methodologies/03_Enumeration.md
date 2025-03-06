@@ -405,7 +405,7 @@ In our situation we were successfull, however when you can't fint matching crede
 
 ### SMTP Enumeration
 
-SMTP (Simple Mail Transfer Protocol) is a communication protocol that is used for the transmission of email. SMTP uses TCP port 25 by default. It is can also be configured to run on TCP port 465 and 587.
+SMTP (Simple Mail Transfer Protocol) is a communication protocol that is used for the transmission of email. SMTP uses TCP port 25 by default. It can also be configured to run on TCP port 465 and 587.
 
 ### Practical SMTP Enumeration
 
