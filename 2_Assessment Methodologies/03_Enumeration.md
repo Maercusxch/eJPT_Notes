@@ -315,7 +315,7 @@ MySQL is an open-source relational database management system based on SQL(Struc
 **Run Portscan to ensure on which port MySQL is running**
 - `service postgresql start`
 - `msfconsole`
-- `workspace -a WEB_ENUM`
+- `workspace -a SQL_ENUM`
 - `ifconfig`
 - `setg RHOSTS 192.248.183.3`
 - `setg RHOST 192.248.183.3`
