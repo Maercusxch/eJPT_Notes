@@ -2,7 +2,7 @@
 
 ## Security Auditing
 
-### What is Security Auditing?
+### Overview of Security Auditing?
 
 Security Auditing is a systematic process of evaluating and verifying the security measures and controls in place within an organization to ensure they are effective, appropriate, and compliant with relevant standards, policies, and regulations. It involves reviewing various aspects of the organization’s information systems, networks, applications, and operational procedures to identify vulnerabilities, weaknesses, and areas for improvement.
 
