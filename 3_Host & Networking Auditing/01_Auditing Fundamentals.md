@@ -23,3 +23,12 @@ A strong security posture supports overall business objectives by ensuring that 
 
 **6. Continuous Improvement:**
 Security auditing is not a one-time activity but an ongoing process that promotes continuous improvement. Regular audits ensure that security measures evolve to address new threats and vulnerabilities, maintaining a proactive approach to security.
+
+### Essential Terminology
+
+Term	Definition	Importance
+Security Policies	Formal documents that define an organization’s security objectives, guidelines, and procedures to protect information assets.	Establishes the framework for implementing and enforcing security controls.
+Compliance	Adherence to regulatory requirements, industry standards, and internal policies related to security and data protection.	Ensures that the organization meets legal obligations and best practices.
+Vulnerability	A weakness in a system or process that can be exploited to gain unauthorized access or cause harm.	Identifying vulnerabilities is crucial for assessing and improving security measures.
+Control	A safeguard or countermeasure implemented to mitigate risks and protect information assets.	Controls are designed to prevent, detect, or respond to security threats and weaknesses.
+Risk Assessment	The process of identifying, analyzing, and evaluating risks to an organization’s information assets.	Helps prioritize security measures based on the likelihood and impact of identified risks.
