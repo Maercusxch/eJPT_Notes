@@ -37,3 +37,11 @@ Security auditing is not a one-time activity but an ongoing process that promote
 | Compliance Audit | An examination of an organization’s adherence to regulatory requirements and industry standards. | Validates whether the organization meets the necessary compliance criteria and identifies areas for improvement. |
 Access Control | Measures and mechanisms used to regulate who can access specific information or systems and what actions they can perform. | Protects sensitive information from unauthorized access and misuse. |
 | Audit Report | A formal document that presents the findings, conclusions, and recommendations resulting from a security audit. | Communicates audit results and provides guidance for improving security practices. |
+
+### Security Auditing Process
+
+**1. Planning and Preparation**
+
+Define Objectives and Scope: Determine the goals of the audit and the specific systems, processes, and controls to be evaluated. 
+Gather Relevant Documentation: Collect policies, procedures, network diagrams, and previous audit reports. 
+Establish Audit Team and Schedule: Assemble the audit team and set a timeline for the audit activities.
