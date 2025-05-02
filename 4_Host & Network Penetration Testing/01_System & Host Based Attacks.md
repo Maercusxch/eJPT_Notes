@@ -23,7 +23,7 @@ The first step of the exploitation process will involve identifying whether WebD
 
 - `ping demo.ine.local`
 - `nmap -sV -sC 10.2.20.234`
-- `nmap -sV -p 80 --script=http-enum 10.2.20.234` Use scrit to tell us weher we have the webdav directory and if webdav is configured on this webserver.
+- `nmap -sV -p 80 --script=http-enum 10.2.20.234` Use script to tell us whether we have the webdav directory and if webdav is configured on this webserver.
 - `davtest -url http://10.2.20.234/webdav` Failed because Unauthorized credentials
 - `davtest -auth bob:password_123321 -url http://10.2.20.234/webdav`
 - `cadaver http://10.2.20.234/webdav`
