@@ -98,3 +98,4 @@ In order to utilize PsExec to gain access to a Windows target, we will need to i
 - `cd /`
 - `dir`
 - `type flag.txt` This reveals the flag to us.
+
