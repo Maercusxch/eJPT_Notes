@@ -130,3 +130,17 @@ Windows Remote Management (WinRM) is a Windows remote management protocol that c
 - `set PASSWORD tinkerbell`
 - `set FORCE_VBS true` Force the module to use the VBS CmdStager
 - `getuid` puts the UID of the process out
+
+## Windows Privilege Escalation
+
+Privilege escalation is the process of exploiting vulnerabilities or misconfigurations in systems to elevate privileges from one user to another, typically to a user with administrative or root access on a system.After gaining an initial foothold on a target system you will be required to elevate your privileges in order to perform tasks and functionality that require administrative privileges.
+
+**Windows Kernel**
+
+A Kernel is a computer program that is the core of an operating system and has complete control over every resource and hardware on a system. It acts as a translation layer between hardware and software and facilitates the communication between these two layers.
+
+Windows NT is the kernel that comes pre-packaged with all versions of Microsoft Windows and operates as a traditional kernel with a few exceptions based on user design philosophy. It consists of two main modes of operation that determine access to system resources and hardware: 1. User Mode – Programs and services running in user mode have limited access to system resources and functionality. 2. Kernel Mode – Kernel mode has unrestricted access to system resources and functionality with the added functionality of managing devices and system memory.
+
+**Windows Kernel Exploitation**
+
+Kernel exploits on Windows will typically target vulnerabilities in the Windows kernel to execute arbitrary code in order to run privileged system commands or to obtain a system shell. This process will differ based on the version of Windows being targeted and the kernel exploit being used.
