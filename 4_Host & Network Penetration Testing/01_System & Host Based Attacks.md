@@ -144,3 +144,6 @@ Windows NT is the kernel that comes pre-packaged with all versions of Microsoft 
 **Windows Kernel Exploitation**
 
 Kernel exploits on Windows will typically target vulnerabilities in the Windows kernel to execute arbitrary code in order to run privileged system commands or to obtain a system shell. This process will differ based on the version of Windows being targeted and the kernel exploit being used.
+
+- Windows-Exploit-Suggester: GitHub: https://github.com/AonCyberLabs/Windows-Exploit-Suggester
+- Windows-kernel-Exploits: GitHub: https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-135
