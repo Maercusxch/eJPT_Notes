@@ -147,3 +147,16 @@ Kernel exploits on Windows will typically target vulnerabilities in the Windows 
 
 - Windows-Exploit-Suggester: GitHub: https://github.com/AonCyberLabs/Windows-Exploit-Suggester
 - Windows-kernel-Exploits: GitHub: https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-135
+
+### Bypassing UAC
+
+- UACMe: Github: https://github.com/hfiref0x/UACME
+
+**UAC(User Account Controll)**
+
+Definition: UAC is a Windows security feature introduced in Windows Vista. It helps prevent unauthorized changes to the operating system.
+Purpose: It ensures that any changes to the system require approval from an administrator or a user with administrative rights.
+Prompts: Non-privileged users receive a credential prompt (must enter administrator credentials). Privileged users see a consent prompt (just confirm the action).
+Security Risk: Some attacks can bypass UAC, allowing malicious executables to run with elevated privileges without proper authorization.
+
+### Bypassing UAC with UACMe Practical
