@@ -1,10 +1,23 @@
-**What version of Windows is running**
+**What version of windows is running**
 
 - `sysinfo`
-- 
-**What current User we have access to**
 
-**What Privileges this User has**
+**What current user we have access to**
+
+- `getuid`
+
+**What privileges this user has**
+
+- `getprivs`
+
+**Verify if this user is part of the local administrator group**
+
+- `net user` display detailed information about user accounts on a local computer or domain
+- `net localgroup administrators`
+
+**open shell session**
+
+- `shell`
 
 **Meterpreter Session Migration to 64-bit Process**
 
