@@ -225,3 +225,29 @@ system will primarily depend on the privileges assigned to the account that has 
 ### Alternate Data Streams
 
 Alternate Data Streams (ADS) is an NTFS (New Technology File System) file attribute and was designed to provide compatibility with the MacOS HFS (Hierarchical File System). Any file created on an NTFS formatted drive will have two different forks/streams: Data stream - Default stream that contains the data of the file and Resource stream - Typically contains the metadata of the file. Attackers can use ADS to hide malicious code or executables in legitimate files in order to evade detection. This can be done by storing the malicious code or executables in the file attribute resource stream (metadata) of a legitimate file. This technique is usually used to evade basic signature based AVs and static scanning tools.
+
+## Windows Credential Dumping
+
+### Windows Password Hashes
+
+The Windows OS stores hashed user account passwords locally in the SAM (Security Accounts Manager) database. Hashing is the process of converting a piece of data into another value. A hashing function or algorithm is used to generate the new value. The result of a hashing algorithm is known as a hash or hash value. Authentication and verification of user credentials is facilitated by the Local Security Authority (LSA).
+
+**SAM Database**
+
+SAM is a database file that is responsible for managing user accounts and passwords on Windows. All user account passwords stored in the SAM database are hashed. The SAM database file cannot be copied while the operating system is running. The Windows NT kernel keeps the SAM database file locked and as a result, attackers typically utilize in-memory techniques and tools to dump SAM hashes from the LSASS process.
+
+**LM (LanMan)**
+
+LM is the default hashing algorithm that was implemented in Windows operating systems prior to NT4.0. The protocol is used to hash user passwords, and the hashing process can be broken down into the following steps:
+- The password is broken into two seven-character chunks.
+- All characters are then converted into uppercase.
+- Each chunk is then hashed separately with the DES algorithm.
+LM hashing is generally considered to be a weak protocol and can easily be cracked, primarily because the password hash does not include salts, consequently making brute-force and rainbow table attacks effective against LM hashes.
+
+**NTLM (NTHash)**
+
+NTLM is a collection of authentication protocols that are utilized in Windows to facilitate authentication between computers. The authentication process involves using a valid username and password to authenticate successfully. From Windows Vista onwards, Windows disables LM hashing and utilizes NTLM hashing. When a user account is created, it is encrypted using the MD4 hashing algorithm, while the original password is disposed of. NTLM improves upon LM in the following ways:
+- Does not split the hash in to two chunks.
+- Case sensitive.
+- Allows the use of symbols and unicode characters.
+
