@@ -320,7 +320,7 @@ Mimikatz is a Windows post-exploitation tool written by Benjamin Delpy. It allow
 - `pgrep explorer`
 - `migrate 592`
 - `load kiwi` Load kiwi module
-- `?` for help menue
+- `?` for help menu
 - `creds_all`
 - `lsa_dump_sam`
 - `LSA secrets`
