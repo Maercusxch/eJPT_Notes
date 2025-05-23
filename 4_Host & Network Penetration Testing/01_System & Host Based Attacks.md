@@ -344,3 +344,9 @@ For this module you need the LM Hash in addition to the NTLM hash. You can just 
 - `set SMBPass (LM + NTLM Hash of the target machine)` Example: aad3b435b51404eeaad3b435b51404ee:e3c61a68f1b89ee6c8ba9507378dc88d
 - `set target Command or Native\ upload`
 - `exploit`
+
+
+## Exploiting Linux Vulnerabilities
+
+### Linux Vulnerabilities
+
