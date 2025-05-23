@@ -348,5 +348,18 @@ For this module you need the LM Hash in addition to the NTLM hash. You can just 
 
 ## Exploiting Linux Vulnerabilities
 
-### Linux Vulnerabilities
+### Frequently Exploited Linux Services
+
+**TCP ports**
+Apache Web Server is a Free and open source cross-platform web server released under the Apache License 2.0. Apache accounts for over 80% of web servers globally. Typically configured to run on port 80/443.
+
+**SSH (Secure Shell)**
+ SSH is a cryptographic remote access protocol that is used to remotely access and control systems over an unsecured network. SSH was developed as a secure successor to telnet. Typically configured to run on port 22.
+ 
+**FTP (File Transfer Protocol)**
+FTP (File Transfer Protocol) is a protocol that uses TCP port 21 and is used to facilitate file sharing between a server and client/clients and vice versa. Typically configured to run on port 21.
+
+**SAMBA**
+Samba is the Linux implementation of SMB, and allows Windows systems to access Linux shares and devices. Typically configured to run on port 445.
+
 
