@@ -367,6 +367,7 @@ Samba is the Linux implementation of SMB, and allows Windows systems to access L
 
 SMB (Server Message Block) is a network file sharing protocol that is used to facilitate the sharing of files and peripherals between computers on a LAN. SMB uses port 445 (TCP). However, originally, SMB ran on top of NetBIOS using port 139. Samba is the Linux implementation of SMB, and allows Windows systems to access Linux shares and devices.
 
+
 ### Practical Samba Recon: Dictionary Attack
 
 - `nmap -sV demo.ine.local`
@@ -380,3 +381,12 @@ SMB (Server Message Block) is a network file sharing protocol that is used to fa
 - `get flag.tar.gz`
 - `tar xzf flag.tar.gz`
 - `cat flag`
+
+
+### Linux Kernel Exploitation
+
+Kernel exploits on Linux will typically target vulnerabilities in the Linux kernel to execute arbitrary code in order to run privileged system commands or to obtain a system shell. This process will differ based on the Kernel version and distribution being targeted and the kernel exploit being used.
+
+**Tools**
+
+- Linux-Exploit-Suggester: https://github.com/mzet-/linux-exploit-suggester
