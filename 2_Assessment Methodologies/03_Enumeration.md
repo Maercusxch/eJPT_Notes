@@ -291,7 +291,7 @@ Additionally, important to note is the robots.txt file. The robots.txt file ist 
 - `set VERBOSE false` that the script will not print all failed attemps
 - IF this does not work you can try to enumerate the users first. Because apache with the UserDir directive enabled generates diffrent error codes when a username exists which can allow to determine valid usernames on the server.
 - `search apache_userdir_enum`
-- `use search apache_userdir_enum`
+- `auxiliary/scanner/http/apache_userdir_enum`
 - `options`
 - `set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt`
 - `run`
